@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <import resource="classpath*:beans-dao.xml"/>
+    <import resource="classpath*:beans-service.xml"/>
+
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+    <mvc:annotation-driven/>
+
+    <context:component-scan base-package="by.it.milosh.controllers"/>
+    <context:component-scan base-package="by.it.milosh.authentication"/>
+    <context:component-scan base-package="by.it.milosh.validators"/>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="ru" />
+        <property name="cookieName" value="LocaleCookie"/>
+        <property name="cookieMaxAge" value="3600"/>
+    </bean>
+
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang"/>
+        </bean>
+    </mvc:interceptors>
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:messages" />
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+</beans>

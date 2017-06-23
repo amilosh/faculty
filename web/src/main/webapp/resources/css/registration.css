@@ -1,0 +1,37 @@
+.reg{
+	padding-top: 10px;
+}
+.tableReg{
+	border-collapse: collapse;
+	margin: 0px auto;	
+	width: 600px;	
+}
+.tableReg tr td{    
+    text-align: center;
+    padding: 8px;
+}
+.treg{
+	height: 200px;
+}
+.stud{
+	width: 300px;	
+}
+.teach{
+	width: 300px;
+}
+.tableReg tr td a{
+	text-decoration: none;
+	display: inline-block;
+	background-image: linear-gradient(to bottom,#fff 0%,#e5e5e5 80%);
+	border: 1px solid #a8acac;
+	border-radius: 3px;
+	width: 200px;
+	height: 36px;
+	padding-top: 15px;
+}
+.tableReg tr td a:hover{
+	border: 1px solid #000000;
+    background-image: linear-gradient(to bottom,#fff 0%,#ededed 80%);   
+    cursor: pointer;
+}
+

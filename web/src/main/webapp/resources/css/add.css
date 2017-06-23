@@ -1,0 +1,26 @@
+.addButton{
+    height: 30px;
+    background-image: linear-gradient(to bottom,#fff 0%,#e5e5e5 80%);
+    border: 1px solid #a8acac;
+    border-radius: 3px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    width: 150px;
+    letter-spacing: 0.7px;
+}
+.addButton:hover{
+    border: 1px solid #000000;
+    background-image: linear-gradient(to bottom,#fff 0%,#ededed 80%);
+    cursor: default;
+}
+.addInput{
+    width: 300px;
+    height: 30px;
+    border: 1px solid #a8acac;
+    border-radius: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+}

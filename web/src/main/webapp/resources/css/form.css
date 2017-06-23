@@ -1,0 +1,90 @@
+.top{
+    -webkit-margin-before: 0em;
+}
+#authform{
+    background-color: #FFF;
+    width: 350px;
+    margin: 0px auto;
+	height: auto;
+    border: 1px solid #000;	
+    margin-top: 100px;
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+    letter-spacing: 0.7px;
+}
+.authwrapper {
+    padding: 15px;
+}
+.form {
+    width: 100%;
+    height: auto;
+}
+.hold {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+}
+.enterform {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #a8acac;
+}
+.inputlogin, .inputpassword {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #a8acac;
+    border-radius: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+}
+.inputlogin:focus, .inputpassword:focus {
+    border: 1px solid #000000;
+}
+.enterdiv {
+    width: 160px;
+    float: left;
+    height: auto;
+}
+.entersubmit {
+    height: 30px;
+    background-image: linear-gradient(to bottom,#fff 0%,#e5e5e5 80%);
+    border: 1px solid #a8acac;
+    border-radius: 3px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    width: 100px;
+    letter-spacing: 0.7px;
+}
+.entersubmit:hover {
+    border: 1px solid #000000;
+    background-image: linear-gradient(to bottom,#fff 0%,#ededed 80%);   
+    cursor: pointer;
+}
+.remdiv {
+    width: 116px;
+    float: right;
+    height: auto;
+    padding-left: 44px;
+    padding-top: 5px;
+}
+.rememberme {     
+}
+.formError{
+     font-family: Helvetica, sans-serif;
+     font-size: 16px;
+     color: red;
+     margin-top: 20px;
+     text-align: center;
+ }
+.formErrors{
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: red;
+    margin-top: 0px;
+    text-align: center;
+    background-color: aqua;
+}

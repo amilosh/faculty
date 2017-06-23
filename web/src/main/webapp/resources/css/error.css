@@ -1,0 +1,14 @@
+body{
+    background-color: #AFDAFC;
+}
+.errorpage{
+	text-align: center;
+}
+.pagenotfound{
+	font-size: 50px;
+	font-family: Tahoma;
+	padding-top: 200px;
+}
+.errorcat{
+	padding-top: 50px;
+}
