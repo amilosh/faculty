@@ -9,23 +9,22 @@
     <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
     <link rel="stylesheet" href="/resources/css/main.css"/>
     <link rel="stylesheet" href="/resources/css/add.css"/>
-    <link rel="stylesheet" href="/resources/css/form.css"/>
     <title>Registration Page</title>
 </head>
 <body>
 
 <div class="wrapper">
 
-    <c:import url="/WEB-INF/views/header.jsp"/>
+    <c:import url="/WEB-INF/views/main/header.jsp"/>
 
     <div id="content">
 
         <br/>
 
         <div class="errTest">
-            <p style="padding-left: 120px;">СТУДЕНТ</p><br/>
+            <p style="padding-left: 90px;">ПРЕПОДАВАТЕЛЬ</p><br/>
 
-            <form:form method="post" modelAttribute="user" action="/registrationStudent">
+            <form:form method="post" modelAttribute="user" action="/registrationTeacher">
                 <spring:bind path="username">
                     <form:input path="username" type="text" placeholder="Username" class="addInput"/>
                     <form:errors path="username" cssStyle="color: red"/>
@@ -35,16 +34,17 @@
                     <form:errors path="password" cssStyle="color: red"/>
                 </spring:bind><br/><br/>
                 <button type="submit" class="addButton">Регистрация</button>
-            </form:form><br/>
+            </form:form>
 
         </div>
 
     </div>
 
-    <c:import url="/WEB-INF/views/footer.jsp"/>
+    <c:import url="/WEB-INF/views/main/footer.jsp"/>
 
 </div>
 
 </body>
 </html>
+
 

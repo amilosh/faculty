@@ -14,7 +14,7 @@
 
 <div class="wrapper">
 
-    <c:import url="/WEB-INF/views/header.jsp"/>
+    <c:import url="/WEB-INF/views/main/header.jsp"/>
 
     <div id="content">
 
@@ -27,7 +27,7 @@
 
     </div>
 
-    <c:import url="/WEB-INF/views/footer.jsp"/>
+    <c:import url="/WEB-INF/views/main/footer.jsp"/>
 
 </div>
 

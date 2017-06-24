@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping
 public class MainController {
     private final static Logger logger = Logger.getLogger(MainController.class);
 
@@ -63,25 +64,25 @@ public class MainController {
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String main() {
-        return "main";
+        return "main/main";
     }
 
     @RequestMapping(value = {"/registration"}, method = RequestMethod.GET)
     public String registration() {
-        return "registration";
+        return "main/registration";
     }
 
     @RequestMapping(value = {"/registrationStudent"}, method = RequestMethod.GET)
     public String registrationStudent(Model model) {
         model.addAttribute("user", new User());
-        return "registrationStudent";
+        return "main/registrationStudent";
     }
 
     @RequestMapping(value = "/registrationStudent", method = RequestMethod.POST)
     public String registrationStudent(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "registrationStudent";
+            return "main/registrationStudent";
         }
         Role role = roleService.getRoleByRoleName("ROLE_STUDENT");
         user.setRole(role);
@@ -93,14 +94,14 @@ public class MainController {
     @RequestMapping(value = {"/registrationTeacher"}, method = RequestMethod.GET)
     public String registrationTeacher(Model model) {
         model.addAttribute("user", new User());
-        return "registrationTeacher";
+        return "main/registrationTeacher";
     }
 
     @RequestMapping(value = "/registrationTeacher", method = RequestMethod.POST)
     public String registrationTeacher(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "registrationTeacher";
+            return "main/registrationTeacher";
         }
         Role role = roleService.getRoleByRoleName("ROLE_TEACHER");
         user.setRole(role);
@@ -114,7 +115,7 @@ public class MainController {
         if (error != null) {
             model.addAttribute("error", "Username or password is incorrect.");
         }
-        return "login";
+        return "main/login";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -128,7 +129,7 @@ public class MainController {
 
     @RequestMapping(value = "/access_denied", method = RequestMethod.GET)
     public String accessDenied() {
-        return "access-denied";
+        return "main/access-denied";
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
