@@ -1,5 +1,6 @@
 package by.it.milosh.controllers;
 
+import by.it.milosh.Enums.RoleEnum;
 import by.it.milosh.pojos.Role;
 import by.it.milosh.pojos.User;
 import by.it.milosh.service.*;
@@ -84,7 +85,7 @@ public class MainController {
         if (bindingResult.hasErrors()) {
             return "main/registrationStudent";
         }
-        Role role = roleService.getRoleByRoleName("ROLE_STUDENT");
+        Role role = roleService.getRoleByRoleName(RoleEnum.STUDENT.getType());
         user.setRole(role);
         userService.addEntity(user);
         securityService.autoLogin(user.getUsername(), user.getPassword());
@@ -103,7 +104,7 @@ public class MainController {
         if (bindingResult.hasErrors()) {
             return "main/registrationTeacher";
         }
-        Role role = roleService.getRoleByRoleName("ROLE_TEACHER");
+        Role role = roleService.getRoleByRoleName(RoleEnum.TEACHER.getType());
         user.setRole(role);
         userService.addEntity(user);
         securityService.autoLogin(user.getUsername(), user.getPassword());
@@ -141,11 +142,11 @@ public class MainController {
     public ModelAndView personal(ModelAndView model) {
         String forwardPage = "";
         String roleName = roleService.getRoleNameByUsername(getPrincipal());
-        if (roleName.equals("ROLE_STUDENT")) {
+        if (roleName.equals(RoleEnum.STUDENT.getType())) {
             forwardPage = "redirect:/personalStudent";
-        } else if (roleName.equals("ROLE_TEACHER")) {
+        } else if (roleName.equals(RoleEnum.TEACHER.getType())) {
             forwardPage = "redirect:/personalTeacher";
-        } else if (roleName.equals("ROLE_ADMIN")) {
+        } else if (roleName.equals(RoleEnum.ADMIN.getType())) {
             forwardPage = "admin/admin";
         }
         model.setViewName(forwardPage);

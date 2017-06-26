@@ -1,5 +1,6 @@
 package by.it.milosh.controllers;
 
+import by.it.milosh.Enums.RoleEnum;
 import by.it.milosh.pojos.Course;
 import by.it.milosh.pojos.Role;
 import by.it.milosh.pojos.User;
@@ -72,7 +73,7 @@ public class AdminController {
 
     @RequestMapping(value = "/allStudents", method = RequestMethod.GET)
     public ModelAndView allStudents(ModelAndView model) {
-        List<User> students = userService.getAllUserByRole("ROLE_STUDENT");
+        List<User> students = userService.getAllUserByRole(RoleEnum.STUDENT.getType());
         model.addObject("students", students);
         model.setViewName("admin/allStudents");
         return model;
@@ -85,8 +86,8 @@ public class AdminController {
         if (page != null) {
             currentPage = page;
         }
-        List<User> students = userService.getAllUserByRolePagination((currentPage-1)*usersPerPage, usersPerPage, "ROLE_STUDENT");
-        long numberOfUsers = userService.numberOfUsersByRole("ROLE_STUDENT");
+        List<User> students = userService.getAllUserByRolePagination((currentPage-1)*usersPerPage, usersPerPage, RoleEnum.STUDENT.getType());
+        long numberOfUsers = userService.numberOfUsersByRole(RoleEnum.STUDENT.getType());
         int numberOfPages = (int) Math.ceil(numberOfUsers * 1.0 / usersPerPage);
         model.addObject("currentPage", currentPage);
         model.addObject("numberOfPages", numberOfPages);
@@ -97,7 +98,7 @@ public class AdminController {
 
     @RequestMapping(value = "/allTeachers", method = RequestMethod.GET)
     public ModelAndView allTeachers(ModelAndView model) {
-        List<User> teachers = userService.getAllUserByRole("ROLE_TEACHER");
+        List<User> teachers = userService.getAllUserByRole(RoleEnum.TEACHER.getType());
         model.addObject("teachers", teachers);
         model.setViewName("admin/allTeachers");
         return model;

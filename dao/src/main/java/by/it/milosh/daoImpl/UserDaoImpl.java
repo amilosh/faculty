@@ -14,6 +14,11 @@ import java.util.List;
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     private static Logger logger = Logger.getLogger(UserDaoImpl.class);
 
+    private final String GET_ALL_USER_BY_ROLE = "select u from User u left join u.role r where r.roleName=:roleName";
+    private final String GET_ALL_USER_BY_ROLE_PAGINATION = "select u from User u left join u.role r where r.roleName=:roleName";
+    private final String NUMBER_OF_USERS_BY_ROLE = "select count(u) from User u left join u.role r where r.roleName=:roleName";
+    private final String GET_ALL_USERS = "from User";
+
     /**
      * Extrsct one user from DB by username.
      * @param username
@@ -21,10 +26,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
      */
     @Override
     public User findUserByUsername(String username) {
-        Criteria criteria = getSession().createCriteria(User.class);
-        criteria.add(Restrictions.eq("username", username));
-        User user = (User) criteria.uniqueResult();
-        return user;
+        return (User) getSession().createCriteria(User.class).add(Restrictions.eq("username", username)).uniqueResult();
     }
 
     /**
@@ -35,12 +37,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
      */
     @Override
     public List<User> getAllUserByRole(String roleName) {
-        String hql = "select u from User u left join u.role r where r.roleName=:roleName";
-        Query query = getSession().createQuery(hql);
-        query.setParameter("roleName", roleName);
-        List<User> users = query.list();
-        System.out.println(users);
-        return users;
+        return getSession().createQuery(GET_ALL_USER_BY_ROLE).setParameter("roleName", roleName).list();
     }
 
     /**
@@ -53,21 +50,20 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
      */
     @Override
     public List<User> getAllUserByRolePagination(Integer offset, Integer maxResult, String roleName) {
-        String hql = "select u from User u left join u.role r where r.roleName=:roleName";
-        Query query = getSession().createQuery(hql);
-        query.setParameter("roleName", roleName);
         int firstPage = 0;
         if (offset != null) {
             firstPage = offset;
         }
-        query.setFirstResult(firstPage);
         int numberUsers = 10;
         if (maxResult != null) {
             numberUsers = maxResult;
         }
-        query.setMaxResults(numberUsers);
-        List<User> users = (List<User>) query.list();
-        return users;
+        return (List<User>) getSession()
+                .createQuery(GET_ALL_USER_BY_ROLE_PAGINATION)
+                .setParameter("roleName", roleName)
+                .setFirstResult(firstPage)
+                .setMaxResults(numberUsers)
+                .list();
     }
 
     /**
@@ -78,11 +74,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
      */
     @Override
     public Long numberOfUsersByRole(String roleName) {
-        String hql = "select count(u) from User u left join u.role r where r.roleName=:roleName";
-        Query query = getSession().createQuery(hql);
-        query.setParameter("roleName", roleName);
-        Long numberOfUsers = (Long) query.uniqueResult();
-        return numberOfUsers;
+        return (Long) getSession().createQuery(NUMBER_OF_USERS_BY_ROLE).setParameter("roleName", roleName).uniqueResult();
     }
 
     /**
@@ -91,10 +83,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
      */
     @Override
     public List<User> getAllUsers() {
-        String hql = "from User";
-        Query query = getSession().createQuery(hql);
-        List<User> users = query.list();
-        return users;
+        return getSession().createQuery(GET_ALL_USERS).list();
     }
 
 }

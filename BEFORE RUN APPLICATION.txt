@@ -1,15 +1,10 @@
 1. In dao/src/main/resources/beans-dao.xml
 change:
-       <prop key="hibernate.hbm2ddl.auto">update</prop>
-     to
-       <prop key="hibernate.hbm2ddl.auto">create</prop>
-2. In dao/src/main/resources/beans-dao.xml
-change:
        <property name="username" value="root"/>
        <property name="password" value="12345"/>
      to
        connection settings to your database
-3. In pom.xml
+2. In pom.xml
 change:
        <build>
          ...
@@ -21,22 +16,13 @@ change:
        </build>
      to
        your Java Version
-4. Create MySQ database:
-create database Faculty;
-use Faculty;
-5. Run application. Hibernate will create tables in database.
-6. Enter data to database "Faculty" for Spring Security functioning:
+3. Run application. Hibernate will create tables in database.
+4. Enter data to database "Faculty" for Spring Security functioning:
 insert into role values (1, "ROLE_ADMIN");
 insert into role values (2, "ROLE_STUDENT");
 insert into role values (3, "ROLE_TEACHER");
 insert into user (username, password, role_id) values ("admin", "admin", 1);
-7. In order to get "Admin Page" follow this link:
+5. In order to get "Admin Page" follow this link:
 localhost:8080/admin  (*for Apache Tomcat)
 and enter username: admin
           password: admin
-8! After STOP application:
-change:
-       <prop key="hibernate.hbm2ddl.auto">create</prop>
-     to
-       <prop key="hibernate.hbm2ddl.auto">update</prop>
-in order to data in the database is not deleted during the next run application.
