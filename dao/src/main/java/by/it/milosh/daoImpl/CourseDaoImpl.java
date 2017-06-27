@@ -14,6 +14,8 @@ import java.util.List;
 public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
     private static Logger logger = Logger.getLogger(CourseDaoImpl.class);
 
+    private final static String GET_ALL_COURSES = "from Course";
+
     /**
      * Extract one Course from DB by course name.
      * @param courseName
@@ -21,9 +23,10 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
      */
     @Override
     public Course getCourseByName(String courseName) {
-        Criteria criteria = getSession().createCriteria(Course.class);
-        criteria.add(Restrictions.eq("courseName", courseName));
-        return (Course) criteria.uniqueResult();
+        return (Course) getSession()
+                .createCriteria(Course.class)
+                .add(Restrictions.eq("courseName", courseName))
+                .uniqueResult();
     }
 
     /**
@@ -32,10 +35,7 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
      */
     @Override
     public List<Course> getAllCourses() {
-        String hql = "from Course";
-        Query query = getSession().createQuery(hql);
-        List<Course> courses = query.list();
-        return courses;
+        return getSession().createQuery(GET_ALL_COURSES).list();
     }
 
 }

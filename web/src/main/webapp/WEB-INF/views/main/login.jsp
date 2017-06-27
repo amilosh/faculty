@@ -29,20 +29,20 @@
                 <form class="form" method="post" action="/login">
 
                     <div class="hold">
-                        <input type="text" name="username" placeholder="Username" class="inputlogin">
+                        <input type="text" name="username" placeholder="<spring:message code="username"/>" class="inputlogin">
                     </div>
 
                     <div class="hold">
-                        <input type="text" name="password" placeholder="Password" class="inputpassword">
+                        <input type="text" name="password" placeholder="<spring:message code="password"/>" class="inputpassword">
                     </div>
 
                     <div class="enterform">
                         <div class="enterdiv">
-                            <button type="submit" class="entersubmit">Войти</button>
+                            <button type="submit" class="entersubmit"><spring:message code="logIn"/></button>
                         </div>
                         <div class="remdiv">
-                            <input type="checkbox" name="rememberme" class="rememberme">
-                            <label for="rememberme" class="remembermelabel">Запомнить</label>
+                            <input type="checkbox" name="rememberme" class="rememberme" id="rememberMe">
+                            <label for="rememberMe" class="remembermelabel"><spring:message code="rememberme"/></label>
                         </div>
                     </div>
 

@@ -3,8 +3,6 @@ package by.it.milosh.daoImpl;
 import by.it.milosh.dao.UserDao;
 import by.it.milosh.pojos.User;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -14,10 +12,10 @@ import java.util.List;
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     private static Logger logger = Logger.getLogger(UserDaoImpl.class);
 
-    private final String GET_ALL_USER_BY_ROLE = "select u from User u left join u.role r where r.roleName=:roleName";
-    private final String GET_ALL_USER_BY_ROLE_PAGINATION = "select u from User u left join u.role r where r.roleName=:roleName";
-    private final String NUMBER_OF_USERS_BY_ROLE = "select count(u) from User u left join u.role r where r.roleName=:roleName";
-    private final String GET_ALL_USERS = "from User";
+    private final static String GET_ALL_USER_BY_ROLE = "select u from User u left join u.role r where r.roleName=:roleName";
+    private final static String GET_ALL_USER_BY_ROLE_PAGINATION = "select u from User u left join u.role r where r.roleName=:roleName";
+    private final static String NUMBER_OF_USERS_BY_ROLE = "select count(u) from User u left join u.role r where r.roleName=:roleName";
+    private final static String GET_ALL_USERS = "from User";
 
     /**
      * Extrsct one user from DB by username.

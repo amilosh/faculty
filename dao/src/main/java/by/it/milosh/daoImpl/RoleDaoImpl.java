@@ -14,6 +14,8 @@ import java.util.List;
 public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
     private static Logger logger = Logger.getLogger(RoleDaoImpl.class);
 
+    private final static String GET_ALL_ROLES = "from Role";
+
     /**
      * Extract one Role from DB by role name.
      * @param roleName
@@ -21,9 +23,10 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
      */
     @Override
     public Role getRoleByRoleName(String roleName) {
-        Criteria criteria = getSession().createCriteria(Role.class);
-        criteria.add(Restrictions.eq("roleName", roleName));
-        return (Role) criteria.uniqueResult();
+        return (Role) getSession()
+                .createCriteria(Role.class)
+                .add(Restrictions.eq("roleName", roleName))
+                .uniqueResult();
     }
 
     /**
@@ -32,10 +35,7 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
      */
     @Override
     public List<Role> getAllRoles() {
-        String hql = "from Role";
-        Query query = getSession().createQuery(hql);
-        List<Role> roles = query.list();
-        return roles;
+        return getSession().createQuery(GET_ALL_ROLES).list();
     }
 
 }

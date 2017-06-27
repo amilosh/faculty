@@ -1,5 +1,6 @@
 package by.it.milosh.daoImpl;
 
+import by.it.milosh.Enums.RoleEnum;
 import by.it.milosh.dao.UserCourseDao;
 import by.it.milosh.pojos.Course;
 import by.it.milosh.pojos.User;
@@ -15,6 +16,11 @@ import java.util.List;
 public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCourseDao {
     private static Logger logger = Logger.getLogger(UserCourseDaoImpl.class);
 
+    private final static String GET_ALL_USER_COURSE_BY_USER_ID = "from UserCourse uc where uc.user.user_id=:user_id";
+    private final static String GET_ALL_USER_COURSE_BY_COURSE_ID = "from UserCourse uc where uc.course.course_id=:course_id and uc.user.role.roleName=:roleName";
+    private final static String CHECK_TEACHER_COURSE = "from UserCourse uc where uc.course.course_id=:course_id and uc.user.role.roleName=:roleName";
+    private final static String GET_ALL_USER_COURSE = "from UserCourse";
+
     /**
      * Determine all courses, on which specific user subscribed.
      * User is determined by user_id.
@@ -23,11 +29,10 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
      */
     @Override
     public List<UserCourse> getAllUserCourseByUserId(Long user_id) {
-        String hql = "from UserCourse uc where uc.user.user_id=:user_id";
-        Query query = getSession().createQuery(hql);
-        query.setParameter("user_id", user_id);
-        List<UserCourse> userCourses = query.list();
-        return userCourses;
+        return getSession()
+                .createQuery(GET_ALL_USER_COURSE_BY_USER_ID)
+                .setParameter("user_id", user_id)
+                .list();
     }
 
     /**
@@ -54,12 +59,11 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
      */
     @Override
     public List<UserCourse> getAllUserCourseByCourseId(Long course_id) {
-        String hql = "from UserCourse uc where uc.course.course_id=:course_id and uc.user.role.roleName=:roleName";
-        Query query = getSession().createQuery(hql);
-        query.setParameter("course_id", course_id);
-        query.setParameter("roleName", "ROLE_STUDENT");
-        List<UserCourse> userCourses = query.list();
-        return userCourses;
+        return getSession()
+                .createQuery(GET_ALL_USER_COURSE_BY_COURSE_ID)
+                .setParameter("course_id", course_id)
+                .setParameter("roleName", RoleEnum.STUDENT.getType())
+                .list();
     }
 
     /**
@@ -70,24 +74,20 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
      */
     @Override
     public List<UserCourse> checkTeacherCourse(Long course_id) {
-        String hql = "from UserCourse uc where uc.course.course_id=:course_id and uc.user.role.roleName=:roleName";
-        Query query = getSession().createQuery(hql);
-        query.setParameter("course_id", course_id);
-        query.setParameter("roleName", "ROLE_TEACHER");
-        List<UserCourse> userCourses = query.list();
-        return userCourses;
+        return getSession()
+                .createQuery(CHECK_TEACHER_COURSE)
+                .setParameter("course_id", course_id)
+                .setParameter("roleName", "ROLE_TEACHER")
+                .list();
     }
 
     /**
      * Extract all UserCourse from DB.
-     * @return
+     * @return list of all UserCourses
      */
     @Override
     public List<UserCourse> getAllUserCourse() {
-        String hql = "from UserCourse";
-        Query query = getSession().createQuery(hql);
-        List<UserCourse> userCourses = query.list();
-        return userCourses;
+        return getSession().createQuery(GET_ALL_USER_COURSE).list();
     }
 
 }
