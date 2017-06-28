@@ -44,6 +44,11 @@ public class TeacherController {
         return userName;
     }
 
+    /**
+     * Go to personal teacher page.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = {"/personalTeacher"}, method = RequestMethod.GET)
     public ModelAndView personal(ModelAndView model) {
         List<String> courseNames = userService.getAllCourseNames();
@@ -63,6 +68,14 @@ public class TeacherController {
         return model;
     }
 
+    /**
+     * Teacher choose course for teaching.
+     * If he he already chose course, he can see all students of this course.
+     * @param course - course from form
+     * @param bindingResult - org.springframework.validation.BindingResult
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/personalTeacher", method = RequestMethod.POST)
     public ModelAndView personal(@ModelAttribute("course") Course course,
                                  BindingResult bindingResult,
@@ -90,6 +103,13 @@ public class TeacherController {
         return model;
     }
 
+    /**
+     * Teacher make grade to student.
+     * @param user_course_id - UserCurse
+     * @param rating - grade of student
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = {"/makeAsses"}, method = RequestMethod.POST)
     public ModelAndView makeAsses(@RequestParam Long user_course_id,
                                   @RequestParam Integer rating,

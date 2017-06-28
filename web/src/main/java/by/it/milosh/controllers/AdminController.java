@@ -37,6 +37,11 @@ public class AdminController {
     @Autowired
     private UserCourseService userCourseService;
 
+    /**
+     * Extract all roles from DB.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allRoles", method = RequestMethod.GET)
     public ModelAndView allRoles(ModelAndView model) {
         List<Role> roles = roleService.getAllRoles();
@@ -45,6 +50,12 @@ public class AdminController {
         return model;
     }
 
+    /**
+     * Add new Role to DB.
+     * @param title - name of role
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allRoles", method = RequestMethod.POST)
     public ModelAndView allRoles(@RequestParam String title, ModelAndView model) {
         Role role = new Role();
@@ -54,6 +65,11 @@ public class AdminController {
         return model;
     }
 
+    /**
+     *
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allCourses", method = RequestMethod.GET)
     public ModelAndView allCourses(ModelAndView model) {
         List<Course> courses = courseService.getAllCourses();
@@ -62,6 +78,12 @@ public class AdminController {
         return model;
     }
 
+    /**
+     * Extract all courses from DB.
+     * @param title - name of course
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allCourses", method = RequestMethod.POST)
     public ModelAndView allCourses(@RequestParam String title, ModelAndView model) {
         Course course = new Course();
@@ -71,6 +93,11 @@ public class AdminController {
         return model;
     }
 
+    /**
+     * Extract all users, who have role Student, from DB.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allStudents", method = RequestMethod.GET)
     public ModelAndView allStudents(ModelAndView model) {
         List<User> students = userService.getAllUserByRole(RoleEnum.STUDENT.getType());
@@ -79,6 +106,12 @@ public class AdminController {
         return model;
     }
 
+    /**
+     * Extract all users, who have role Student, from DB, using pagination.
+     * @param page - admin goes to this page
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allStudentsPagination/{page}", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView allStudentsPagination(@PathVariable Integer page, ModelAndView model) {
         int currentPage = 1;
@@ -96,6 +129,11 @@ public class AdminController {
         return model;
     }
 
+    /**
+     * Extract all users, who have role Student, from DB.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allTeachers", method = RequestMethod.GET)
     public ModelAndView allTeachers(ModelAndView model) {
         List<User> teachers = userService.getAllUserByRole(RoleEnum.TEACHER.getType());
@@ -104,6 +142,11 @@ public class AdminController {
         return model;
     }
 
+    /**
+     * Extract all UserCourse from DB.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/allUserCourses", method = RequestMethod.GET)
     public ModelAndView allUserCourses(ModelAndView model) {
         List<UserCourse> userCourses = userCourseService.getAllUserCourse();

@@ -63,22 +63,41 @@ public class MainController {
         return userName;
     }
 
+    /**
+     * Go to main page.
+     * @return - name of view
+     */
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String main() {
         return "main/main";
     }
 
+    /**
+     * Go to registration page.
+     * @return - name of view
+     */
     @RequestMapping(value = {"/registration"}, method = RequestMethod.GET)
     public String registration() {
         return "main/registration";
     }
 
+    /**
+     * Go to registration page like Student.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - name of view
+     */
     @RequestMapping(value = {"/registrationStudent"}, method = RequestMethod.GET)
     public String registrationStudent(Model model) {
         model.addAttribute("user", new User());
         return "main/registrationStudent";
     }
 
+    /**
+     * Registration like Student.
+     * @param user - user from form
+     * @param bindingResult - org.springframework.validation.BindingResult
+     * @return - name of view
+     */
     @RequestMapping(value = "/registrationStudent", method = RequestMethod.POST)
     public String registrationStudent(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
@@ -92,12 +111,23 @@ public class MainController {
         return "redirect:/";
     }
 
+    /**
+     * Go to registration page like Teacher.
+     * @param model - org.springframework.validation.BindingResult
+     * @return - name of view
+     */
     @RequestMapping(value = {"/registrationTeacher"}, method = RequestMethod.GET)
     public String registrationTeacher(Model model) {
         model.addAttribute("user", new User());
         return "main/registrationTeacher";
     }
 
+    /**
+     * Registration like Teacher.
+     * @param user - user from form
+     * @param bindingResult - org.springframework.validation.BindingResult
+     * @return - name of view
+     */
     @RequestMapping(value = "/registrationTeacher", method = RequestMethod.POST)
     public String registrationTeacher(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
@@ -111,6 +141,12 @@ public class MainController {
         return "redirect:/";
     }
 
+    /**
+     * Go to login page.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @param error - description of error
+     * @return - name of view
+     */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login (Model model, String error) {
         if (error != null) {
@@ -119,6 +155,12 @@ public class MainController {
         return "main/login";
     }
 
+    /**
+     * Logout and go to main page.
+     * @param request - javax.servlet.http.HttpServletRequest;
+     * @param response - javax.servlet.http.HttpServletResponse;
+     * @return - name of view
+     */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -128,16 +170,29 @@ public class MainController {
         return "redirect:/";
     }
 
+    /**
+     * Message about access is denied.
+     * @return - name of view
+     */
     @RequestMapping(value = "/access_denied", method = RequestMethod.GET)
     public String accessDenied() {
         return "main/access-denied";
     }
 
+    /**
+     * Go to admin main page.
+     * @return - name of view
+     */
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin() {
         return "admin/admin";
     }
 
+    /**
+     * Go to personal page (student or teacher or admin).
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = {"/personal"}, method = RequestMethod.GET)
     public ModelAndView personal(ModelAndView model) {
         String forwardPage = "";

@@ -48,6 +48,11 @@ public class StudentController {
         return userName;
     }
 
+    /**
+     * Go to personal student page.
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = {"/personalStudent"}, method = RequestMethod.GET)
     public ModelAndView personal(ModelAndView model) {
         List<String> courseNames = userService.getAllCourseNames();
@@ -60,6 +65,14 @@ public class StudentController {
         return model;
     }
 
+    /**
+     * Student enroll for this course.
+     * If he already enrolled for this course, a message is sent about this.
+     * @param course - course from form
+     * @param bindingResult - org.springframework.validation.BindingResult
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
     @RequestMapping(value = "/personalStudent", method = RequestMethod.POST)
     public ModelAndView personal(@Valid @ModelAttribute("course") Course course,
                                  BindingResult bindingResult,

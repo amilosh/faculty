@@ -48,7 +48,6 @@ public class CourseValidator implements Validator {
         if (!checkCourse) {
             errors.reject("course.already.use");
         }
-
     }
 
     private String getPrincipal() {
