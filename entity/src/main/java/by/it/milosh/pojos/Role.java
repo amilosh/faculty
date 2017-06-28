@@ -55,6 +55,28 @@ public class Role implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Role role = (Role) o;
+
+        if (roleName != null ? !roleName.equals(role.roleName) : role.roleName != null) return false;
+        if (role_id != null ? !role_id.equals(role.role_id) : role.role_id != null) return false;
+        if (users != null ? !users.equals(role.users) : role.users != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = role_id != null ? role_id.hashCode() : 0;
+        result = 31 * result + (roleName != null ? roleName.hashCode() : 0);
+        result = 31 * result + (users != null ? users.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Role{" +
                 "role_id=" + role_id +

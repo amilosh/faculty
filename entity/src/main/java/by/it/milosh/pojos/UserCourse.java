@@ -67,6 +67,31 @@ public class UserCourse implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserCourse that = (UserCourse) o;
+
+        if (course != null ? !course.equals(that.course) : that.course != null) return false;
+        if (rating != null ? !rating.equals(that.rating) : that.rating != null) return false;
+        if (user != null ? !user.equals(that.user) : that.user != null) return false;
+        if (user_course_id != null ? !user_course_id.equals(that.user_course_id) : that.user_course_id != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = user_course_id != null ? user_course_id.hashCode() : 0;
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (course != null ? course.hashCode() : 0);
+        result = 31 * result + (rating != null ? rating.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "UserCourse{" +
                 "user_course_id=" + user_course_id +
