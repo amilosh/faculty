@@ -8,6 +8,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class describes the user's identity.
+ * It has properties:
+ *     username;
+ *     password;
+ *     role - user role for authentication (ROLE_ADMIN or ROLE_STUDENT or ROLE_TEACHER);
+ *     userCourse - entity, that defines user's courses, his rating
+ *         and teacher, who teach this course.
+ */
+
 @Entity
 @Table(name = "user")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "user")

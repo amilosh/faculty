@@ -5,6 +5,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class describes the user role.
+ * It has properties:
+ *     roleName - ROLE_ADMIN or ROLE_STUDENT or ROLE_TEACHER;
+ *     users - users, who have this role.
+ */
+
 @Entity
 @Table(name = "role")
 public class Role implements Serializable {

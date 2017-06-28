@@ -5,6 +5,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class describes the course for teaching.
+ * It has properties:
+ *     courseName - course name;
+ *     userCourse - entity, that defines user's courses, his rating
+ *         and teacher, who teach this course.
+ */
+
 @Entity
 @Table(name = "course")
 public class Course implements Serializable {

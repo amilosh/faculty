@@ -3,6 +3,15 @@ package by.it.milosh.pojos;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * A class describes the course for teaching.
+ * It has properties:
+ *     user - student, who enrolled for this course,
+ *         or teacher, who teach this course.
+ *     course - course;
+ *     rating - the student's grade.
+ */
+
 @Entity
 @Table(name = "userCourse")
 public class UserCourse implements Serializable {
