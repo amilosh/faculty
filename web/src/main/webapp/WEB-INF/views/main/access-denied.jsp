@@ -15,12 +15,7 @@
 
 <div class="wrapper">
 
-    <header>
-        <span class="logo">
-            <a href="/"><img src="/resources/images/logo.jpg"></a>
-        </span>
-        <span class="ruen">RU EN</span>
-    </header>
+    <c:import url="header.jsp"/>
 
     <div id="content">
 
