@@ -13,6 +13,7 @@ import java.io.Serializable;
  * Class describes standard CRUD methods.
  * @param <T> - type of persistent class
  */
+
 @Repository(value = "baseDao")
 public class BaseDaoImpl<T> implements BaseDao<T> {
     private static Logger logger = Logger.getLogger(BaseDaoImpl.class);

@@ -23,8 +23,8 @@ public class SecurityServiceImpl implements SecurityService {
     /**
      * When user log up, he is becoming Principal object,
      * and his parameters (username, password, role) is stored in authenticationToken.
-     * @param username
-     * @param password
+     * @param username - username
+     * @param password - password
      */
     @Override
     public void autoLogin(String username, String password) {

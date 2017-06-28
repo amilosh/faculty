@@ -20,8 +20,8 @@ public class CourseServiceImpl extends BaseServiceImpl<Course> implements Course
 
     /**
      * Extract one Course from DB by course name.
-     * @param courseName
-     * @return
+     * @param courseName - name of course
+     * @return - course by its name
      */
     @Override
     @Transactional(readOnly = true)
@@ -29,6 +29,10 @@ public class CourseServiceImpl extends BaseServiceImpl<Course> implements Course
         return courseDao.getCourseByName(courseName);
     }
 
+    /**
+     * Extract all Courses from DB.
+     * @return - list of all courses
+     */
     @Override
     @Transactional(readOnly = true)
     public List<Course> getAllCourses() {

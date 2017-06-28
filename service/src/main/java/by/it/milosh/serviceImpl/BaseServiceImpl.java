@@ -10,6 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 
+/**
+ * Class provides services with standard CRUD operations.
+ * @param <T> - type of persistent class
+ */
+
 @Service(value = "baseService")
 @Transactional
 public class BaseServiceImpl<T> implements BaseService<T> {

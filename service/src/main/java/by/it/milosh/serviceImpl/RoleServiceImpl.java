@@ -25,8 +25,8 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 
     /**
      * Extract one Role from DB by role name.
-     * @param roleName
-     * @return
+     * @param roleName - name of Role
+     * @return - Role
      */
     @Override
     @Transactional(readOnly = true)
@@ -38,7 +38,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
      * Determine name of role, which user has.
      * User is determined by username.
      * @param username - username of User
-     * @return
+     * @return - name of role
      */
     @Override
     @Transactional(readOnly = true)
@@ -51,7 +51,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 
     /**
      * Extract all Roles from DB.
-     * @return
+     * @return - list of all roles
      */
     @Override
     @Transactional(readOnly = true)

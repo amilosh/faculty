@@ -24,7 +24,7 @@ public class UserCourseServiceImpl extends BaseServiceImpl<UserCourse> implement
 
     /**
      * Extract all UserCourse from DB.
-     * @return
+     * @return - list af all UserCourse
      */
     @Override
     @Transactional(readOnly = true)
@@ -35,8 +35,8 @@ public class UserCourseServiceImpl extends BaseServiceImpl<UserCourse> implement
     /**
      * Determine all courses, on which specific user subscribed.
      * User is determined by username.
-     * @param username
-     * @return
+     * @param username - name of user
+     * @return - list of all UserCourses, on which specific user subscribed
      */
     @Override
     @Transactional(readOnly = true)
@@ -48,8 +48,8 @@ public class UserCourseServiceImpl extends BaseServiceImpl<UserCourse> implement
     /**
      * Determine all courses, on which specific user subscribed.
      * User is determined by user_id.
-     * @param user_id
-     * @return
+     * @param user_id - user id
+     * @return - all UserCurse, in which contained information about user's courses and his grades
      */
     @Override
     @Transactional(readOnly = true)
@@ -59,8 +59,8 @@ public class UserCourseServiceImpl extends BaseServiceImpl<UserCourse> implement
 
     /**
      * User is subscribing on course.
-     * @param user_id
-     * @param course_id
+     * @param user_id - user id
+     * @param course_id - course id
      */
     @Override
     public void addCourseToUser(Long user_id, Long course_id) {
@@ -70,8 +70,8 @@ public class UserCourseServiceImpl extends BaseServiceImpl<UserCourse> implement
     /**
      * Extract all students, which subscribed on specific course.
      * Course is determined by course_id.
-     * @param course_id
-     * @return
+     * @param course_id - course id
+     * @return - list of all students, which subscribed on specific course
      */
     @Override
     @Transactional(readOnly = true)
@@ -82,8 +82,8 @@ public class UserCourseServiceImpl extends BaseServiceImpl<UserCourse> implement
     /**
      * Extract all teachers, which subscribed on specific course.
      * Course is determined by course_id.
-     * @param course_id
-     * @return
+     * @param course_id - course id
+     * @return - list of all teachers, which subscribed on specific course
      */
     @Override
     @Transactional(readOnly = true)
