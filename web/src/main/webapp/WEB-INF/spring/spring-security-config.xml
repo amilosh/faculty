@@ -21,6 +21,7 @@
                     authentication-failure-url="/login?error"/>
         <access-denied-handler error-page="/access_denied"/>
         <csrf/>
+        <remember-me remember-me-parameter="spring_security_remember_me"/>
     </http>
 
     <authentication-manager alias="authenticationManager">
