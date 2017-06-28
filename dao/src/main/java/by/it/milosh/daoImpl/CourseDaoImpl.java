@@ -18,8 +18,8 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 
     /**
      * Extract one Course from DB by course name.
-     * @param courseName
-     * @return
+     * @param courseName - name of course
+     * @return - course by its name
      */
     @Override
     public Course getCourseByName(String courseName) {
@@ -31,9 +31,10 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 
     /**
      * Extract all Courses from DB.
-     * @return
+     * @return - list of all courses
      */
     @Override
+    @SuppressWarnings("unchecked")
     public List<Course> getAllCourses() {
         return getSession().createQuery(GET_ALL_COURSES).list();
     }

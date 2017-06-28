@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import java.io.Serializable;
 
 /**
- * Class describe standard CRUD methods.
- * @param <T>
+ * Class describes standard CRUD methods.
+ * @param <T> - type of persistent class
  */
 @Repository(value = "baseDao")
 public class BaseDaoImpl<T> implements BaseDao<T> {
@@ -35,6 +35,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public T getEntityById(Class clazz, Serializable id) {
         T t = (T) getSession().get(clazz, id);
         return t;

@@ -18,8 +18,8 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
 
     /**
      * Extract one Role from DB by role name.
-     * @param roleName
-     * @return
+     * @param roleName - name of Role
+     * @return - Role
      */
     @Override
     public Role getRoleByRoleName(String roleName) {
@@ -31,9 +31,10 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
 
     /**
      * Extract all Roles from DB.
-     * @return
+     * @return - list of all roles
      */
     @Override
+    @SuppressWarnings("unchecked")
     public List<Role> getAllRoles() {
         return getSession().createQuery(GET_ALL_ROLES).list();
     }

@@ -19,8 +19,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
     /**
      * Extrsct one user from DB by username.
-     * @param username
-     * @return
+     * @param username - name of user
+     * @return - user by username
      */
     @Override
     public User findUserByUsername(String username) {
@@ -30,10 +30,11 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     /**
      * Extract all users, which have specific role.
      * Role is determined by role name.
-     * @param roleName
-     * @return
+     * @param roleName - name of role
+     * @return - list of all users, who have this role
      */
     @Override
+    @SuppressWarnings("unchecked")
     public List<User> getAllUserByRole(String roleName) {
         return getSession().createQuery(GET_ALL_USER_BY_ROLE).setParameter("roleName", roleName).list();
     }
@@ -43,10 +44,11 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
      * Role is determined by role name.
      * @param offset - first record on the page
      * @param maxResult - number of record on the page
-     * @param roleName
-     * @return
+     * @param roleName - name of role
+     * @return - list of users, who have this role, using pagination
      */
     @Override
+    @SuppressWarnings("unchecked")
     public List<User> getAllUserByRolePagination(Integer offset, Integer maxResult, String roleName) {
         int firstPage = 0;
         if (offset != null) {
@@ -67,19 +69,23 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     /**
      * Determine number of users, which has specific role.
      * Role is determined by role name.
-     * @param roleName
-     * @return
+     * @param roleName - name of role
+     * @return - number of user, who have this role
      */
     @Override
     public Long numberOfUsersByRole(String roleName) {
-        return (Long) getSession().createQuery(NUMBER_OF_USERS_BY_ROLE).setParameter("roleName", roleName).uniqueResult();
+        return (Long) getSession()
+                .createQuery(NUMBER_OF_USERS_BY_ROLE)
+                .setParameter("roleName", roleName)
+                .uniqueResult();
     }
 
     /**
      * Extract all Users from DB.
-     * @return
+     * @return - list of all users
      */
     @Override
+    @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {
         return getSession().createQuery(GET_ALL_USERS).list();
     }
