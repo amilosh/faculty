@@ -1,19 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>by.it.milosh</groupId>
     <artifactId>Faculty</artifactId>
     <version>1.0-SNAPSHOT</version>
-        <modules>
-            <module>entity</module>
-            <module>dao</module>
-            <module>service</module>
-            <module>web</module>
-        </modules>
+
+    <modules>
+        <module>entity</module>
+        <module>dao</module>
+        <module>service</module>
+        <module>web</module>
+    </modules>
+
     <packaging>pom</packaging>
+
     <name>Faculty</name>
     <url>http://maven.apache.org</url>
 
@@ -33,6 +37,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
         <junit.version>4.12</junit.version>
         <hibernate.version>4.3.8.Final</hibernate.version>
         <hibernate.validator.version>5.1.0.Final</hibernate.validator.version>
@@ -188,7 +193,7 @@
             <version>${cobertura.version}</version>
         </dependency>
 
-        <!-- Log4j, slf4j -->
+        <!-- Logging -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
