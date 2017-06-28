@@ -1,10 +1,13 @@
 package by.it.milosh.pojos;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "userCourse")
-public class UserCourse {
+public class UserCourse implements Serializable {
+
+    private static final long serialVersionUID = 4L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

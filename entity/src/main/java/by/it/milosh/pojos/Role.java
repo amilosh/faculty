@@ -1,12 +1,15 @@
 package by.it.milosh.pojos;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements Serializable {
+
+    private static final long serialVersionUID = 2L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
