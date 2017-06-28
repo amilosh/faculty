@@ -143,6 +143,29 @@ public class AdminController {
     }
 
     /**
+     * Extract all users, who have role Teacher, from DB, using pagination.
+     * @param page - admin goes to this page
+     * @param model - org.springframework.web.servlet.ModelAndView
+     * @return - model
+     */
+    @RequestMapping(value = "/allTeachersPagination/{page}", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView allTeachersPagination(@PathVariable Integer page, ModelAndView model) {
+        int currentPage = 1;
+        int usersPerPage = 5;
+        if (page != null) {
+            currentPage = page;
+        }
+        List<User> teachers = userService.getAllUserByRolePagination((currentPage-1)*usersPerPage, usersPerPage, RoleEnum.TEACHER.getType());
+        long numberOfUsers = userService.numberOfUsersByRole(RoleEnum.TEACHER.getType());
+        int numberOfPages = (int) Math.ceil(numberOfUsers * 1.0 / usersPerPage);
+        model.addObject("currentPage", currentPage);
+        model.addObject("numberOfPages", numberOfPages);
+        model.addObject("teachers", teachers);
+        model.setViewName("admin/allTeachers");
+        return model;
+    }
+
+    /**
      * Extract all UserCourse from DB.
      * @param model - org.springframework.web.servlet.ModelAndView
      * @return - model

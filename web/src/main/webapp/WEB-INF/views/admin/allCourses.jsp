@@ -25,7 +25,7 @@
             <li><a href="/admin/allRoles">Роли</a></li>
             <li><a href="/admin/allCourses" class="active">Курсы</a></li>
             <li><a href="/admin/allStudentsPagination/1">Студенты</a></li>
-            <li><a href="/admin/allTeachers">Преподаватели</a></li>
+            <li><a href="/admin/allTeachersPagination/1">Преподаватели</a></li>
         </ul>
 
         <br/>

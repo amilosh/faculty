@@ -20,7 +20,7 @@
         <p><a href="/admin/allRoles">Список всех ролей</a></p>
         <p><a href="/admin/allCourses">Список всех курсов</a></p>
         <p><a href="/admin/allStudentsPagination/1">Список всех студентов</a></p>
-        <p><a href="/admin/allTeachers">Список всех преподавателей</a></p>
+        <p><a href="/admin/allTeachersPagination/1">Список всех преподавателей</a></p>
         <p>Список все юзер-курсы</p>
 
         <hr/>

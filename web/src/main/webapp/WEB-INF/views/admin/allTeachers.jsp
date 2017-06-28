@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/resources/css/main.css"/>
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
     <link rel="stylesheet" href="/resources/css/table-admin.css"/>
+    <link rel="stylesheet" href="/resources/css/pagination.css"/>
     <title>Admin All Teachers Page</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
             <li><a href="/admin/allRoles">Роли</a></li>
             <li><a href="/admin/allCourses">Курсы</a></li>
             <li><a href="/admin/allStudentsPagination/1">Студенты</a></li>
-            <li><a href="/admin/allTeachers" class="active">Преподаватели</a></li>
+            <li><a href="/admin/allTeachersPagination/1" class="active">Преподаватели</a></li>
         </ul>
 
         <br/>
@@ -43,6 +44,27 @@
                 </tr>
             </c:forEach>
         </table>
+
+        <br/><br/>
+
+        <c:if test="${currentPage != 1}">
+            <td><a href="/admin/allTeachersPagination/${currentPage - 1}" class="prev"> Previous </a></td>
+        </c:if>
+
+        <c:forEach begin="1" end="${numberOfPages}" var="i">
+            <c:choose>
+                <c:when test="${currentPage eq i}">
+                    <span class="currentPage">${i}</span>
+                </c:when>
+                <c:otherwise>
+                    <a href="/admin/allTeachersPagination/${i}" class="page">${i}</a>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+
+        <c:if test="${currentPage lt numberOfPages}">
+            <td><a href="/admin/allTeachersPagination/${currentPage + 1}" class="next"> Next </a> </td>
+        </c:if>
 
     </div>
 
