@@ -11,7 +11,7 @@
             <a href="/"><img src="/resources/images/logo.jpg"></a>
         </span>
 
-        <span class="ruen"><a href="?lang=en"><img src="/resources/images/UK.jpg"></a> <a href="?lang=ru"><img src="/resources/images/RUS.jpg"></a>  </span>
+        <span class="ruen"><a href="?lang=en_US"><img src="/resources/images/UK.jpg"></a> <a href="?lang=ru_RU"><img src="/resources/images/RUS.jpg"></a>  </span>
 
         <span class="enter">
             <c:choose>

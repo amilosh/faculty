@@ -43,7 +43,7 @@
 
                     <div class="formError">
                         <c:if test="${not empty error}">
-                            ${error}
+                            <spring:message code="errorUsernameOrPassword"/>
                         </c:if>
                     </div>
 

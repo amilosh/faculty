@@ -23,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 @Controller
 @RequestMapping
@@ -150,7 +152,7 @@ public class MainController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login (Model model, String error) {
         if (error != null) {
-            model.addAttribute("error", "Username or password is incorrect.");
+            model.addAttribute("error", "error");
         }
         return "main/login";
     }
