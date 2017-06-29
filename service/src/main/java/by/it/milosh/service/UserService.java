@@ -20,4 +20,6 @@ public interface UserService extends BaseService<User> {
 
     Long numberOfUsersByRole(String roleName);
 
+    void deleteStudentById(Long user_id);
+
 }

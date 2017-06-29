@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,8 @@
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
     <link rel="stylesheet" href="/resources/css/table-admin.css"/>
     <link rel="stylesheet" href="/resources/css/pagination.css"/>
+    <link rel="stylesheet" href="/resources/css/form.css"/>
+    <link rel="stylesheet" href="/resources/css/add.css"/>
     <title>Admin All Students Page</title>
 </head>
 <body>
@@ -65,6 +68,15 @@
         <c:if test="${currentPage lt numberOfPages}">
             <td><a href="/admin/allStudentsPagination/${currentPage + 1}" class="next"> Next </a> </td>
         </c:if>
+
+        <br/><br/>
+
+        <div>
+            <form:form name="expelStudent" method="post" action="/admin/expelStudent">
+                <input type="text" name="username" placeholder="Имя студента" class="addInput" value=""/><br/><br/>
+                <button type="submit" class="addButton">Отчислить</button>
+            </form:form><br/>
+        </div>
 
     </div>
 

@@ -118,4 +118,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return userDao.numberOfUsersByRole(roleName);
     }
 
+    @Override
+    public void deleteStudentById(Long user_id) {
+        userDao.deleteStudentById(user_id);
+    }
 }

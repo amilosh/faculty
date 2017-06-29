@@ -2,6 +2,7 @@ package by.it.milosh.daoImpl;
 
 import by.it.milosh.dao.UserDao;
 import by.it.milosh.pojos.User;
+import by.it.milosh.pojos.UserCourse;
 import org.apache.log4j.Logger;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     private final static String GET_ALL_USER_BY_ROLE_PAGINATION = "select u from User u left join u.role r where r.roleName=:roleName";
     private final static String NUMBER_OF_USERS_BY_ROLE = "select count(u) from User u left join u.role r where r.roleName=:roleName";
     private final static String GET_ALL_USERS = "from User";
+    private final static String GET_USER_COURSE_BY_USER_ID = "from UserCourse uc where uc.user.user_id=:user_id";
+
 
     /**
      * Extrsct one user from DB by username.
@@ -24,7 +27,10 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
      */
     @Override
     public User findUserByUsername(String username) {
-        return (User) getSession().createCriteria(User.class).add(Restrictions.eq("username", username)).uniqueResult();
+        return (User) getSession()
+                .createCriteria(User.class)
+                .add(Restrictions.eq("username", username))
+                .uniqueResult();
     }
 
     /**
@@ -90,4 +96,23 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         return getSession().createQuery(GET_ALL_USERS).list();
     }
 
+    @Override
+    @SuppressWarnings("unchecked")
+    public void deleteStudentById(Long user_id) {
+        getSession().createQuery(GET_USER_COURSE_BY_USER_ID).setParameter("user_id", user_id);
+        List<UserCourse> userCourses = getSession()
+                .createQuery(GET_USER_COURSE_BY_USER_ID)
+                .setParameter("user_id", user_id)
+                .list();
+
+        for (UserCourse userCourse : userCourses) {
+            userCourse.setUser(null);
+            userCourse.setCourse(null);
+            getSession().delete(userCourse);
+        }
+
+        User user = (User) getSession().get(User.class, user_id);
+        getSession().delete(user);
+
+    }
 }
