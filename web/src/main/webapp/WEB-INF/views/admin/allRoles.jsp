@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
     <link rel="stylesheet" href="/resources/css/table-admin.css"/>
     <link rel="stylesheet" href="/resources/css/add.css"/>
-    <title>Admin All Roles Page</title>
+    <title><spring:message code="AdminAllRolesPage"/></title>
 </head>
 <body>
 
@@ -31,7 +31,7 @@
         <br/>
 
         <table>
-            <caption>Список ролей</caption>
+            <caption><spring:message code="ListOfRoles"/></caption>
              <tr>
                 <th>role_id</th>
                 <th>role_name</th>
@@ -47,8 +47,8 @@
         <br/>
 
         <form:form name="addRole" method="post" action="/admin/allRoles">
-            <input type="text" name="title" value="" placeholder="Название роли" class="addInput"><br/><br/>
-            <input type="submit" class="addButton" value="Добавить роль">
+            <input type="text" name="title" value="" placeholder="<spring:message code="RoleName"/>" class="addInput"><br/><br/>
+            <input type="submit" class="addButton" value="<spring:message code="AddRole"/>">
         </form:form>
 
     </div>
