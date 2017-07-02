@@ -22,10 +22,10 @@
     <div id="content">
 
         <ul>
-            <li><a href="/admin/allRoles" class="active">Роли</a></li>
-            <li><a href="/admin/allCourses">Курсы</a></li>
-            <li><a href="/admin/allStudentsPagination/1">Студенты</a></li>
-            <li><a href="/admin/allTeachersPagination/1">Преподаватели</a></li>
+            <li><a href="/admin/allRoles" class="active"><spring:message code="Roles"/></a></li>
+            <li><a href="/admin/allCourses"><spring:message code="Courses"/></a></li>
+            <li><a href="/admin/allStudentsPagination/1"><spring:message code="Students"/></a></li>
+            <li><a href="/admin/allTeachersPagination/1"><spring:message code="Teachers"/></a></li>
         </ul>
 
         <br/>

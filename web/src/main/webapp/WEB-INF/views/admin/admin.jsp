@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
     <link rel="stylesheet" href="/resources/css/main.css"/>
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
-    <title>Admin Main Page</title>
+    <title><spring:message code="AdminMainPage"/></title>
 </head>
 <body>
 
@@ -19,10 +19,10 @@
     <div id="content">
 
         <ul>
-            <li><a href="/admin/allRoles">Роли</a></li>
-            <li><a href="/admin/allCourses">Курсы</a></li>
-            <li><a href="/admin/allStudentsPagination/1">Студенты</a></li>
-            <li><a href="/admin/allTeachersPagination/1">Преподаватели</a></li>
+            <li><a href="/admin/allRoles"><spring:message code="Roles"/></a></li>
+            <li><a href="/admin/allCourses"><spring:message code="Courses"/></a></li>
+            <li><a href="/admin/allStudentsPagination/1"><spring:message code="Students"/></a></li>
+            <li><a href="/admin/allTeachersPagination/1"><spring:message code="Teachers"/></a></li>
         </ul>
 
     </div>
