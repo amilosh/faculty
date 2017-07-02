@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
     <link rel="stylesheet" href="/resources/css/main.css"/>
     <meta charset="utf-8">
-    <title>Access denied</title>
+    <title><spring:message code="AccessDenied"/></title>
 </head>
 <body>
 
@@ -19,13 +19,13 @@
 
     <div id="content">
 
-        Пользователь ${pageContext.request.userPrincipal.name}, доступ к этой странице вам запрещён.
+        <spring:message code="User"/> ${pageContext.request.userPrincipal.name}, <spring:message code="accessToThisPageIsDeniedForYou."/>
 
         <br/><br/>
 
         <img src="/resources/images/sadcat.jpg"><br/><br/>
 
-        <a href="/">На главную</a>
+        <a href="/"><spring:message code="ToMainPage"/></a>
 
     </div>
 
