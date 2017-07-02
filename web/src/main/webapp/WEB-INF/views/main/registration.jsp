@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/resources/css/main.css"/>
     <link rel="stylesheet" href="/resources/css/add.css"/>
     <link rel="stylesheet" href="/resources/css/registration.css"/>
-    <title>Registration Page</title>
+    <title><spring:message code="RegistrationPage"/></title>
 </head>
 <body>
 
@@ -23,11 +23,11 @@
         <div class="reg">
             <table class="tableReg">
                 <tr>
-                    <td colspan="2" class="treg">РЕГИСТРАЦИЯ</td>
+                    <td colspan="2" class="treg"><spring:message code="REGISTRATION"/></td>
                 </tr>
                 <tr>
-                    <td class="stud"><a href="/registrationStudent">СТУДЕНТ</a></td>
-                    <td class="teach"><a href="/registrationTeacher">ПРЕПОДАВАТЕЛЬ</a></td>
+                    <td class="stud"><a href="/registrationStudent"><spring:message code="STUDENT"/></a></td>
+                    <td class="teach"><a href="/registrationTeacher"><spring:message code="TEACHER"/></a></td>
                 </tr>
             </table>
         </div>

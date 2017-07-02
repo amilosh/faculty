@@ -7,7 +7,7 @@
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
     <link rel="stylesheet" href="/resources/css/main.css"/>
-    <title>Main Page</title>
+    <title><spring:message code="MainPage"/></title>
 </head>
 <body>
 
