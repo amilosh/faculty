@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/pagination.css"/>
     <link rel="stylesheet" href="/resources/css/form.css"/>
     <link rel="stylesheet" href="/resources/css/add.css"/>
-    <title>Admin All Students Page</title>
+    <title><spring:message code="AdminAllStudentsPage"/></title>
 </head>
 <body>
 
@@ -33,7 +33,7 @@
         <br/>
 
         <table>
-            <caption>Список студентов</caption>
+            <caption><spring:message code="ListOfStudents"/></caption>
             <tr>
                 <th>user_id</th>
                 <th>username</th>
@@ -73,8 +73,8 @@
 
         <div>
             <form:form name="expelStudent" method="post" action="/admin/expelStudent">
-                <input type="text" name="username" placeholder="Имя студента" class="addInput" value=""/><br/><br/>
-                <button type="submit" class="addButton">Отчислить</button>
+                <input type="text" name="username" placeholder="<spring:message code="StudentName"/>" class="addInput" value=""/><br/><br/>
+                <button type="submit" class="addButton"><spring:message code="Expel"/></button>
             </form:form><br/>
         </div>
 
