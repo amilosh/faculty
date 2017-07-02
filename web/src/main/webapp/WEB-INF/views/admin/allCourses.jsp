@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
     <link rel="stylesheet" href="/resources/css/table.css"/>
     <link rel="stylesheet" href="/resources/css/add.css"/>
-    <title>Admin All Courses Page</title>
+    <title><spring:message code="AdminAllCoursesPage"/></title>
 </head>
 <body>
 
@@ -31,7 +31,7 @@
         <br/>
 
         <table>
-            <caption>Список курсов</caption>
+            <caption><spring:message code="ListOfCourses"/></caption>
             <tr>
                 <th>course_id</th>
                 <th>courseName</th>
@@ -47,8 +47,8 @@
         <br/>
 
         <form:form name="addCourse" method="post" action="/admin/allCourses">
-            <input type="text" name="title" value="" placeholder="Название курса" class="addInput"><br/><br/>
-            <input type="submit" class="addButton" value="Добавить курс">
+            <input type="text" name="title" value="" placeholder="<spring:message code="CourseName"/>" class="addInput"><br/><br/>
+            <input type="submit" class="addButton" value="<spring:message code="AddCourse"/>">
         </form:form>
 
     </div>
