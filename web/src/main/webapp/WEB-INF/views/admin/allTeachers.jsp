@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
     <link rel="stylesheet" href="/resources/css/table-admin.css"/>
     <link rel="stylesheet" href="/resources/css/pagination.css"/>
-    <title>Admin All Teachers Page</title>
+    <title><spring:message code="AdminAllTeachersPage"/></title>
 </head>
 <body>
 
@@ -30,7 +30,7 @@
         <br/>
 
         <table>
-            <caption>Список преподавателей</caption>
+            <caption><spring:message code="ListOfTeachers"/></caption>
             <tr>
                 <th>user_id</th>
                 <th>username</th>
