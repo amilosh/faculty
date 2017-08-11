@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
-    <name>web Maven Webapp</name>
+    <name>web</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
@@ -24,6 +24,17 @@
 
     <build>
         <finalName>web</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>web</warName>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
