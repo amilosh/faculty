@@ -18,4 +18,3 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/table-admin.css"/>
 <link rel="stylesheet" href="${contextPath}/resources/css/pagination.css"/>
 <link rel="stylesheet" href="${contextPath}/resources/css/error.css"/>
-<link rel="stylesheet" href="${contextPath}/resources/css/registration.css"/>

@@ -55,7 +55,7 @@
                     <span class="currentPage">${i}</span>
                 </c:when>
                 <c:otherwise>
-                    <a href="/admin/allStudentsPagination/${i}" class="page">${i}</a>
+                    <a href="${contextPath}/admin/allStudentsPagination/${i}" class="page">${i}</a>
                 </c:otherwise>
             </c:choose>
         </c:forEach>

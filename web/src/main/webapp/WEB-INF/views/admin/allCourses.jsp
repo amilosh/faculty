@@ -3,6 +3,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +20,10 @@
     <div id="content">
 
         <ul>
-            <li><a href="/admin/allRoles"><spring:message code="Roles"/></a></li>
-            <li><a href="/admin/allCourses" class="active"><spring:message code="Courses"/></a></li>
-            <li><a href="/admin/allStudentsPagination/1"><spring:message code="Students"/></a></li>
-            <li><a href="/admin/allTeachersPagination/1"><spring:message code="Teachers"/></a></li>
+            <li><a href="${contextPath}/admin/allRoles"><spring:message code="Roles"/></a></li>
+            <li><a href="${contextPath}/admin/allCourses" class="active"><spring:message code="Courses"/></a></li>
+            <li><a href="${contextPath}/admin/allStudentsPagination/1"><spring:message code="Students"/></a></li>
+            <li><a href="${contextPath}/admin/allTeachersPagination/1"><spring:message code="Teachers"/></a></li>
         </ul>
 
         <br/>

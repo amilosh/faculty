@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +19,10 @@
     <div id="content">
 
         <ul>
-            <li><a href="/admin/allRoles"><spring:message code="Roles"/></a></li>
-            <li><a href="/admin/allCourses"><spring:message code="Courses"/></a></li>
-            <li><a href="/admin/allStudentsPagination/1"><spring:message code="Students"/></a></li>
-            <li><a href="/admin/allTeachersPagination/1" class="active"><spring:message code="Teachers"/></a></li>
+            <li><a href="${contextPath}/admin/allRoles"><spring:message code="Roles"/></a></li>
+            <li><a href="${contextPath}/admin/allCourses"><spring:message code="Courses"/></a></li>
+            <li><a href="${contextPath}/admin/allStudentsPagination/1"><spring:message code="Students"/></a></li>
+            <li><a href="${contextPath}/admin/allTeachersPagination/1" class="active"><spring:message code="Teachers"/></a></li>
         </ul>
 
         <br/>
@@ -44,7 +46,7 @@
         <br/><br/>
 
         <c:if test="${currentPage != 1}">
-            <td><a href="/admin/allTeachersPagination/${currentPage - 1}" class="prev"> Previous </a></td>
+            <td><a href="${contextPath}/admin/allTeachersPagination/${currentPage - 1}" class="prev"> Previous </a></td>
         </c:if>
 
         <c:forEach begin="1" end="${numberOfPages}" var="i">
@@ -53,13 +55,13 @@
                     <span class="currentPage">${i}</span>
                 </c:when>
                 <c:otherwise>
-                    <a href="/admin/allTeachersPagination/${i}" class="page">${i}</a>
+                    <a href="${contextPath}/admin/allTeachersPagination/${i}" class="page">${i}</a>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
 
         <c:if test="${currentPage lt numberOfPages}">
-            <td><a href="/admin/allTeachersPagination/${currentPage + 1}" class="next"> Next </a> </td>
+            <td><a href="${contextPath}/admin/allTeachersPagination/${currentPage + 1}" class="next"> Next </a> </td>
         </c:if>
 
     </div>
