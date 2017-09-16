@@ -8,10 +8,10 @@
     <header>
 
         <span class="logo">
-            <a href="/"><img src="/resources/images/logo.jpg"></a>
+            <a href="/"><img src="${pageContext.request.contextPath}/resources/images/logo.jpg"></a>
         </span>
 
-        <span class="ruen"><a href="?lang=en_US"><img src="/resources/images/UK.jpg"></a> <a href="?lang=ru_RU"><img src="/resources/images/RUS.jpg"></a>  </span>
+        <span class="ruen"><a href="?lang=en_US"><img src="${pageContext.request.contextPath}/resources/images/UK.jpg"></a> <a href="?lang=ru_RU"><img src="/resources/images/RUS.jpg"></a>  </span>
 
         <span class="enter">
             <c:choose>

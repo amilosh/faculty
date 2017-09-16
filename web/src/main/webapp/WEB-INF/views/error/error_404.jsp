@@ -4,16 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
-    <link rel="stylesheet" href="/resources/css/error.css"/>
+    <jsp:include page="../css.jsp"/>
     <title>Error 404 Page</title>
 </head>
 <body>
 
     <div class="errorpage">
         <div class="pagenotfound"><spring:message code="PageNotFound"/></div>
-        <div class="errorcat"><img src="/resources/images/error_cat.jpg"></div>
+        <div class="errorcat"><img src="${pageContext.request.contextPath}/resources/images/error_cat.jpg"></div>
     </div>
 
 </body>

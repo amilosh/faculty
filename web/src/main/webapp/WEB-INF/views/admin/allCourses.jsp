@@ -6,11 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
-    <link rel="stylesheet" href="/resources/css/main.css"/>
-    <link rel="stylesheet" href="/resources/css/navigation.css"/>
-    <link rel="stylesheet" href="/resources/css/table.css"/>
-    <link rel="stylesheet" href="/resources/css/add.css"/>
+    <jsp:include page="../css.jsp"/>
     <title><spring:message code="AdminAllCoursesPage"/></title>
 </head>
 <body>

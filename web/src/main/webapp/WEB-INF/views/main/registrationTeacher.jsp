@@ -6,9 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
-    <link rel="stylesheet" href="/resources/css/main.css"/>
-    <link rel="stylesheet" href="/resources/css/add.css"/>
+    <jsp:include page="../css.jsp"/>
     <title>Registration Page</title>
 </head>
 <body>

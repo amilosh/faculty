@@ -6,10 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
-    <link rel="stylesheet" href="/resources/css/main.css"/>
-    <link rel="stylesheet" href="/resources/css/add.css"/>
-    <link rel="stylesheet" href="/resources/css/registration.css"/>
+    <jsp:include page="../css.jsp"/>
     <title><spring:message code="RegistrationPage"/></title>
 </head>
 <body>

@@ -6,8 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
-    <link rel="stylesheet" href="/resources/css/main.css"/>
+    <jsp:include page="../css.jsp"/>
     <meta charset="utf-8">
     <title><spring:message code="AccessDenied"/></title>
 </head>
@@ -23,7 +22,7 @@
 
         <br/><br/>
 
-        <img src="/resources/images/sadcat.jpg"><br/><br/>
+        <img src="${pageContext.request.contextPath}/resources/images/sadcat.jpg"><br/><br/>
 
         <a href="/"><spring:message code="ToMainPage"/></a>
 

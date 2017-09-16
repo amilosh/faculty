@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
-    <link rel="stylesheet" href="/resources/css/main.css"/>
+    <jsp:include page="../css.jsp"/>
     <title>Admin All UserCourses Page</title>
 </head>
 <body>

@@ -3,16 +3,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/faculty-ico.jpg">
-    <link rel="stylesheet" href="/resources/css/main.css"/>
-    <link rel="stylesheet" href="/resources/css/navigation.css"/>
-    <link rel="stylesheet" href="/resources/css/table-admin.css"/>
-    <link rel="stylesheet" href="/resources/css/pagination.css"/>
-    <link rel="stylesheet" href="/resources/css/form.css"/>
-    <link rel="stylesheet" href="/resources/css/add.css"/>
+    <jsp:include page="../css.jsp"/>
     <title><spring:message code="AdminAllStudentsPage"/></title>
 </head>
 <body>
@@ -24,10 +19,10 @@
     <div id="content">
 
         <ul>
-            <li><a href="/admin/allRoles"><spring:message code="Roles"/></a></li>
-            <li><a href="/admin/allCourses"><spring:message code="Courses"/></a></li>
-            <li><a href="/admin/allStudentsPagination/1" class="active"><spring:message code="Students"/></a></li>
-            <li><a href="/admin/allTeachersPagination/1"><spring:message code="Teachers"/></a></li>
+            <li><a href="${contextPath}/admin/allRoles"><spring:message code="Roles"/></a></li>
+            <li><a href="${contextPath}/admin/allCourses"><spring:message code="Courses"/></a></li>
+            <li><a href="${contextPath}/admin/allStudentsPagination/1" class="active"><spring:message code="Students"/></a></li>
+            <li><a href="${contextPath}/admin/allTeachersPagination/1"><spring:message code="Teachers"/></a></li>
         </ul>
 
         <br/>
@@ -51,7 +46,7 @@
         <br/><br/>
 
         <c:if test="${currentPage != 1}">
-            <td><a href="/admin/allStudentsPagination/${currentPage - 1}" class="prev"> Previous </a></td>
+            <td><a href="${contextPath}/admin/allStudentsPagination/${currentPage - 1}" class="prev"> Previous </a></td>
         </c:if>
 
         <c:forEach begin="1" end="${numberOfPages}" var="i">
@@ -66,13 +61,13 @@
         </c:forEach>
 
         <c:if test="${currentPage lt numberOfPages}">
-            <td><a href="/admin/allStudentsPagination/${currentPage + 1}" class="next"> Next </a> </td>
+            <td><a href="${contextPath}/admin/allStudentsPagination/${currentPage + 1}" class="next"> Next </a> </td>
         </c:if>
 
         <br/><br/>
 
         <div>
-            <form:form name="expelStudent" method="post" action="/admin/expelStudent">
+            <form:form name="expelStudent" method="post" action="${contextPath}/admin/expelStudent">
                 <input type="text" name="username" placeholder="<spring:message code="StudentName"/>" class="addInput" value=""/><br/><br/>
                 <button type="submit" class="addButton"><spring:message code="Expel"/></button>
             </form:form><br/>
