@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 
         <div id="authform">
             <div class="authwrapper">
-                <form class="form" method="post" action="/login">
+                <form class="form" method="post" action="${contextPath}/login">
 
                     <div class="hold">
                         <input type="text" name="username" placeholder="<spring:message code="username"/>" class="inputlogin">

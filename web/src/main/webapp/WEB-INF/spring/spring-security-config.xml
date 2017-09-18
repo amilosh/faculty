@@ -14,7 +14,7 @@
         <intercept-url pattern="/personalTeacher" access="hasRole('ROLE_TEACHER')"/>
         <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
 
-        <form-login login-page="/login"
+        <form-login login-page="/faculty/login"
                     default-target-url="/"
                     username-parameter="username"
                     password-parameter="password"

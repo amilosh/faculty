@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
         <div class="errTest">
             <p style="padding-left: 120px;">СТУДЕНТ</p><br/>
 
-            <form:form method="post" modelAttribute="user" action="/registrationStudent">
+            <form:form method="post" modelAttribute="user" action="${contextPath}/registrationStudent">
                 <spring:bind path="username">
                     <form:input path="username" type="text" placeholder="Username" class="addInput"/>
                     <form:errors path="username" cssStyle="color: red"/>
