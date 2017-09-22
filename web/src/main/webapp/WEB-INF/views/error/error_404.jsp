@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <jsp:include page="../css.jsp"/>
+    <link rel="stylesheet" href="${contextPath}/resources/css/error.css"/>
     <title>Error 404 Page</title>
 </head>
 <body>

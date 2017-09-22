@@ -9,7 +9,7 @@
     <header>
 
         <span class="logo">
-            <a href="${contextPath}"><img src="${contextPath}/resources/images/logo.jpg"></a>
+            <a href="${contextPath}/"><img src="${contextPath}/resources/images/logo.jpg"></a>
         </span>
 
         <span class="ruen"><a href="?lang=en_US"><img src="${contextPath}/resources/images/UK.jpg"></a> <a href="?lang=ru_RU"><img src="${contextPath}/resources/images/RUS.jpg"></a>  </span>

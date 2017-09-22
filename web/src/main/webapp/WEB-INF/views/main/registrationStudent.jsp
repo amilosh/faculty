@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <jsp:include page="../css.jsp"/>
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css"/>
+    <link rel="stylesheet" href="${contextPath}/resources/css/add.css"/>
     <title>Registration Page</title>
 </head>
 <body>

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <
+    <link rel="stylesheet" href="${contextPath}/resources/css/error.css"/>
     <title>Error 500 Page</title>
 </head>
 <body>

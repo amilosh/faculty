@@ -8,13 +8,16 @@
 
 <link rel="shortcut icon" type="image/x-icon" href="${contextPath}/resources/images/faculty-ico.jpg">
 
+<link rel="stylesheet" href="${contextPath}/resources/css/add.css"/>
+<link rel="stylesheet" href="${contextPath}/resources/css/form.css"/>
 <link rel="stylesheet" href="${contextPath}/resources/css/main.css"/>
 <link rel="stylesheet" href="${contextPath}/resources/css/navigation.css"/>
+<link rel="stylesheet" href="${contextPath}/resources/css/pagination.css"/>
 <link rel="stylesheet" href="${contextPath}/resources/css/table.css"/>
 <link rel="stylesheet" href="${contextPath}/resources/css/table-admin.css"/>
 <link rel="stylesheet" href="${contextPath}/resources/css/pagination.css"/>
-<link rel="stylesheet" href="${contextPath}/resources/css/form.css"/>
-<link rel="stylesheet" href="${contextPath}/resources/css/add.css"/>
+
+
 <link rel="stylesheet" href="${contextPath}/resources/css/table-admin.css"/>
-<link rel="stylesheet" href="${contextPath}/resources/css/pagination.css"/>
-<link rel="stylesheet" href="${contextPath}/resources/css/error.css"/>
+
+
