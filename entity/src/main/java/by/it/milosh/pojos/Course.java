@@ -24,7 +24,7 @@ public class Course implements Serializable {
     @Column(name = "course_id")
     private Long course_id;
 
-    @Column(name = "courseName")
+    @Column(name = "courseName", unique = true, nullable = false)
     private String courseName;
 
     @OneToMany(mappedBy = "course")
