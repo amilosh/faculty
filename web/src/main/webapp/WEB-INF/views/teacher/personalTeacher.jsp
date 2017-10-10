@@ -3,6 +3,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +22,7 @@
         <c:choose>
 
             <c:when test="${empty userCourses}">
-                <form:form method="post" modelAttribute="course" action="/personalTeacher">
+                <form:form method="post" modelAttribute="course" action="${contextPath}/personalTeacher">
                     <table>
                         <caption>Выберите курс для преподавания</caption>
                         <tr>
@@ -55,7 +57,7 @@
                         <th colspan="2" class="doRating">Поставить оценку</th>
                     </tr>
                     <c:forEach var="sl" items="${studentsList}" >
-                        <form:form method="post" action="/makeAsses">
+                        <form:form method="post" action="${contextPath}/makeAsses">
                             <tr>
                                 <td><c:out value="${sl.user.username}" /></td>
                                 <td class="stRatingRow"><c:out value="${sl.rating}" /></td>

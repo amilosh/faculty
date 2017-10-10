@@ -44,7 +44,7 @@
 
         <br/>
 
-        <form:form name="addCourse" method="post" action="/admin/allCourses">
+        <form:form name="addCourse" method="post" action="${contextPath}/admin/allCourses">
             <input type="text" name="title" value="" placeholder="<spring:message code="CourseName"/>" class="addInput"><br/><br/>
             <input type="submit" class="addButton" value="<spring:message code="AddCourse"/>">
         </form:form>

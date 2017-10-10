@@ -3,6 +3,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +35,7 @@
 
             <br/><br/>
 
-            <form:form method="post" modelAttribute="course" action="/personalStudent">
+            <form:form method="post" modelAttribute="course" action="${contextPath}/personalStudent">
                 <table>
                     <caption>Записаться на новый курс</caption>
                     <tr>
