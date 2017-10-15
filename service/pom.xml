@@ -32,12 +32,6 @@
             <artifactId>xml-apis</artifactId>
             <version>${xml.apis.version}</version>
         </dependency>
-
-        <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

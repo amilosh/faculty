@@ -19,7 +19,6 @@
     </properties>
 
     <dependencies>
-
         <!-- Junit Test -->
         <dependency>
             <groupId>junit</groupId>
