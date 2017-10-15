@@ -31,13 +31,13 @@
         <table>
             <caption><spring:message code="ListOfStudents"/></caption>
             <tr>
-                <th>user_id</th>
+                <th>userId</th>
                 <th>username</th>
                 <th>password</th>
             </tr>
             <c:forEach var="s" items="${students}">
                 <tr>
-                    <td><c:out value="${s.user_id}" /></td>
+                    <td><c:out value="${s.userId}" /></td>
                     <td><c:out value="${s.username}" /></td>
                     <td><c:out value="${s.password}" /></td>
                 </tr>

@@ -29,14 +29,14 @@
         <p><b>Список юзер-курсов:</b></p>
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>
-                <th>user_course_id</th>
+                <th>userCourseId</th>
                 <th>user</th>
                 <th>course</th>
                 <th>rating</th>
             </tr>
             <c:forEach var="uc" items="${userCourses}">
                 <tr>
-                    <td><c:out value="${uc.user_course_id}" />
+                    <td><c:out value="${uc.userCourseId}" />
                     <td><c:out value="${uc.user.username}" />
                     <td><c:out value="${uc.course.courseName}" />
                     <td><c:out value="${uc.rating}" />

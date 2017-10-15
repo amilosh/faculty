@@ -41,54 +41,54 @@ public class UserCourseServiceImpl extends BaseServiceImpl<UserCourse> implement
     @Override
     @Transactional(readOnly = true)
     public List<UserCourse> getAllUserCourseByUserId(String username) {
-        Long user_id = userDao.findUserByUsername(username).getUser_id();
-        return userCourseDao.getAllUserCourseByUserId(user_id);
+        Long userId = userDao.findUserByUsername(username).getUserId();
+        return userCourseDao.getAllUserCourseByUserId(userId);
     }
 
     /**
      * Determine all courses, on which specific user subscribed.
      * User is determined by user_id.
-     * @param user_id - user id
+     * @param userId - user id
      * @return - all UserCurse, in which contained information about user's courses and his grades
      */
     @Override
     @Transactional(readOnly = true)
-    public List<UserCourse> getAllUserCourseByUserId(Long user_id) {
-        return userCourseDao.getAllUserCourseByUserId(user_id);
+    public List<UserCourse> getAllUserCourseByUserId(Long userId) {
+        return userCourseDao.getAllUserCourseByUserId(userId);
     }
 
     /**
      * User is subscribing on course.
-     * @param user_id - user id
-     * @param course_id - course id
+     * @param userId - user id
+     * @param courseId - course id
      */
     @Override
-    public void addCourseToUser(Long user_id, Long course_id) {
-        userCourseDao.addCourseToUser(user_id, course_id);
+    public void addCourseToUser(Long userId, Long courseId) {
+        userCourseDao.addCourseToUser(userId, courseId);
     }
 
     /**
      * Extract all students, which subscribed on specific course.
      * Course is determined by course_id.
-     * @param course_id - course id
+     * @param courseId - course id
      * @return - list of all students, which subscribed on specific course
      */
     @Override
     @Transactional(readOnly = true)
-    public List<UserCourse> getAllUserCourseByCourseId(Long course_id) {
-        return userCourseDao.getAllUserCourseByCourseId(course_id);
+    public List<UserCourse> getAllUserCourseByCourseId(Long courseId) {
+        return userCourseDao.getAllUserCourseByCourseId(courseId);
     }
 
     /**
      * Extract all teachers, which subscribed on specific course.
      * Course is determined by course_id.
-     * @param course_id - course id
+     * @param courseId - course id
      * @return - list of all teachers, which subscribed on specific course
      */
     @Override
     @Transactional(readOnly = true)
-    public List<UserCourse> checkTeacherCourse(Long course_id) {
-        return userCourseDao.checkTeacherCourse(course_id);
+    public List<UserCourse> checkTeacherCourse(Long courseId) {
+        return userCourseDao.checkTeacherCourse(courseId);
     }
 
 }

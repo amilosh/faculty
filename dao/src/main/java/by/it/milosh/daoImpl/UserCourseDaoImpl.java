@@ -16,36 +16,36 @@ import java.util.List;
 public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCourseDao {
     private static Logger logger = Logger.getLogger(UserCourseDaoImpl.class);
 
-    private final static String GET_ALL_USER_COURSE_BY_USER_ID = "from UserCourse uc where uc.user.user_id=:user_id";
-    private final static String GET_ALL_USER_COURSE_BY_COURSE_ID = "from UserCourse uc where uc.course.course_id=:course_id and uc.user.role.roleName=:roleName";
-    private final static String CHECK_TEACHER_COURSE = "from UserCourse uc where uc.course.course_id=:course_id and uc.user.role.roleName=:roleName";
+    private final static String GET_ALL_USER_COURSE_BY_USER_ID = "from UserCourse uc where uc.user.userId=:userId";
+    private final static String GET_ALL_USER_COURSE_BY_COURSE_ID = "from UserCourse uc where uc.course.courseId=:courseId and uc.user.role.roleName=:roleName";
+    private final static String CHECK_TEACHER_COURSE = "from UserCourse uc where uc.course.courseId=:courseId and uc.user.role.roleName=:roleName";
     private final static String GET_ALL_USER_COURSE = "from UserCourse";
 
     /**
      * Determine all courses, on which specific user subscribed.
      * User is determined by user_id.
-     * @param user_id - user id
+     * @param userId - user id
      * @return - all UserCurse, in which contained information about user's courses and his grades
      */
     @Override
     @SuppressWarnings("unchecked")
-    public List<UserCourse> getAllUserCourseByUserId(Long user_id) {
+    public List<UserCourse> getAllUserCourseByUserId(Long userId) {
         return getSession()
                 .createQuery(GET_ALL_USER_COURSE_BY_USER_ID)
-                .setParameter("user_id", user_id)
+                .setParameter("userId", userId)
                 .list();
     }
 
     /**
      * User is subscribing on course.
-     * @param user_id - user id
-     * @param course_id - course id
+     * @param userId - user id
+     * @param courseId - course id
      */
     @Override
-    public void addCourseToUser(Long user_id, Long course_id) {
+    public void addCourseToUser(Long userId, Long courseId) {
         Session session = getSession();
-        User user = (User) session.get(User.class, user_id);
-        Course course = (Course) session.get(Course.class, course_id);
+        User user = (User) session.get(User.class, userId);
+        Course course = (Course) session.get(Course.class, courseId);
         UserCourse userCourse = new UserCourse();
         userCourse.setUser(user);
         userCourse.setCourse(course);
@@ -55,15 +55,15 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
     /**
      * Extract all students, which subscribed on specific course.
      * Course is determined by course_id.
-     * @param course_id - course id
+     * @param courseId - course id
      * @return - list of all UserCourse by course id
      */
     @Override
     @SuppressWarnings("unchecked")
-    public List<UserCourse> getAllUserCourseByCourseId(Long course_id) {
+    public List<UserCourse> getAllUserCourseByCourseId(Long courseId) {
         return getSession()
                 .createQuery(GET_ALL_USER_COURSE_BY_COURSE_ID)
-                .setParameter("course_id", course_id)
+                .setParameter("courseId", courseId)
                 .setParameter("roleName", RoleEnum.STUDENT.getType())
                 .list();
     }
@@ -71,15 +71,15 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
     /**
      * Extract all teachers, which subscribed on specific course.
      * Course is determined by course_id.
-     * @param course_id - course id
+     * @param courseId - course id
      * @return - list all courses which teacher teach
      */
     @Override
     @SuppressWarnings("unchecked")
-    public List<UserCourse> checkTeacherCourse(Long course_id) {
+    public List<UserCourse> checkTeacherCourse(Long courseId) {
         return getSession()
                 .createQuery(CHECK_TEACHER_COURSE)
-                .setParameter("course_id", course_id)
+                .setParameter("courseId", courseId)
                 .setParameter("roleName", "ROLE_TEACHER")
                 .list();
     }

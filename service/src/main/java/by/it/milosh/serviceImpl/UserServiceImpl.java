@@ -87,9 +87,9 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
      */
     @Override
     public void addCourseToUser(String username, String courseName) {
-        Long user_id = userDao.findUserByUsername(username).getUser_id();
-        Long course_id = courseDao.getCourseByName(courseName).getCourse_id();
-        userCourseDao.addCourseToUser(user_id, course_id);
+        Long userId = userDao.findUserByUsername(username).getUserId();
+        Long courseId = courseDao.getCourseByName(courseName).getCourseId();
+        userCourseDao.addCourseToUser(userId, courseId);
     }
 
     /**
@@ -119,7 +119,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     @Override
-    public void deleteStudentById(Long user_id) {
-        userDao.deleteStudentById(user_id);
+    public void deleteStudentById(Long userId) {
+        userDao.deleteStudentById(userId);
     }
 }

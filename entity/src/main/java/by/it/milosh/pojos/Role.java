@@ -20,8 +20,8 @@ public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "role_id")
-    private Long role_id;
+    @Column(name = "roleId")
+    private Long roleId;
 
     @Column(name = "roleName")
     private String roleName;
@@ -37,12 +37,12 @@ public class Role implements Serializable {
         this.users = users;
     }
 
-    public Long getRole_id() {
-        return role_id;
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setRole_id(Long role_id) {
-        this.role_id = role_id;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     public String getRoleName() {
@@ -69,7 +69,7 @@ public class Role implements Serializable {
         Role role = (Role) o;
 
         if (roleName != null ? !roleName.equals(role.roleName) : role.roleName != null) return false;
-        if (role_id != null ? !role_id.equals(role.role_id) : role.role_id != null) return false;
+        if (roleId != null ? !roleId.equals(role.roleId) : role.roleId != null) return false;
         if (users != null ? !users.equals(role.users) : role.users != null) return false;
 
         return true;
@@ -77,7 +77,7 @@ public class Role implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = role_id != null ? role_id.hashCode() : 0;
+        int result = roleId != null ? roleId.hashCode() : 0;
         result = 31 * result + (roleName != null ? roleName.hashCode() : 0);
         result = 31 * result + (users != null ? users.hashCode() : 0);
         return result;
@@ -86,7 +86,7 @@ public class Role implements Serializable {
     @Override
     public String toString() {
         return "Role{" +
-                "role_id=" + role_id +
+                "roleId=" + roleId +
                 ", roleName='" + roleName + '\'' +
                 '}';
     }

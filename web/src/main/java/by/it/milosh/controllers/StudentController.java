@@ -57,8 +57,8 @@ public class StudentController {
     public ModelAndView personal(ModelAndView model) {
         List<String> courseNames = userService.getAllCourseNames();
         model.addObject("courseNames", courseNames);
-        Long user_id = userService.findUserByUsername(getPrincipal()).getUser_id();
-        List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(user_id);
+        Long userId = userService.findUserByUsername(getPrincipal()).getUserId();
+        List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(userId);
         model.addObject("userCourses", userCourses);
         model.addObject("course", new Course());
         model.setViewName("student/personalStudent");
@@ -79,8 +79,8 @@ public class StudentController {
                                  ModelAndView model){
         courseValidator.validate(course, bindingResult);
         if (bindingResult.hasErrors()) {
-            Long user_id = userService.findUserByUsername(getPrincipal()).getUser_id();
-            List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(user_id);
+            Long userId = userService.findUserByUsername(getPrincipal()).getUserId();
+            List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(userId);
             List<String> courseNames = userService.getAllCourseNames();
             model.addObject("courseNames", courseNames);
             model.addObject("userCourses", userCourses);

@@ -94,9 +94,9 @@ public class UserDaoImplTest {
 
     @Test
     public void getUserByIdTest() {
-        Long user_idBefore = user.getUser_id();
+        Long user_idBefore = user.getUserId();
         User innerUser = userDao.findUserByUsername(user.getUsername());
-        Long user_idAfter = innerUser.getUser_id();
+        Long user_idAfter = innerUser.getUserId();
         assertEquals(user_idBefore, user_idAfter);
     }
 

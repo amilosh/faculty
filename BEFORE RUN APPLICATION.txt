@@ -21,7 +21,7 @@ change:
 insert into role values (1, "ROLE_ADMIN");
 insert into role values (2, "ROLE_STUDENT");
 insert into role values (3, "ROLE_TEACHER");
-insert into user (username, password, role_id) values ("admin", "admin", 1);
+insert into user (username, password, roleId) values ("admin", "admin", 1);
 5. In order to get "Admin Page" follow this link:
 localhost:8080/admin  (*for Apache Tomcat)
 and enter username: admin

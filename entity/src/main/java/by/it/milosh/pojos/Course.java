@@ -21,8 +21,8 @@ public class Course implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "course_id")
-    private Long course_id;
+    @Column(name = "courseId")
+    private Long courseId;
 
     @Column(name = "courseName", unique = true, nullable = false)
     private String courseName;
@@ -38,12 +38,12 @@ public class Course implements Serializable {
         this.userCourse = userCourse;
     }
 
-    public Long getCourse_id() {
-        return course_id;
+    public Long getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(Long course_id) {
-        this.course_id = course_id;
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
     }
 
     public String getCourseName() {
@@ -70,7 +70,7 @@ public class Course implements Serializable {
         Course course = (Course) o;
 
         if (courseName != null ? !courseName.equals(course.courseName) : course.courseName != null) return false;
-        if (course_id != null ? !course_id.equals(course.course_id) : course.course_id != null) return false;
+        if (courseId != null ? !courseId.equals(course.courseId) : course.courseId != null) return false;
         if (userCourse != null ? !userCourse.equals(course.userCourse) : course.userCourse != null) return false;
 
         return true;
@@ -78,7 +78,7 @@ public class Course implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = course_id != null ? course_id.hashCode() : 0;
+        int result = courseId != null ? courseId.hashCode() : 0;
         result = 31 * result + (courseName != null ? courseName.hashCode() : 0);
         result = 31 * result + (userCourse != null ? userCourse.hashCode() : 0);
         return result;
@@ -87,7 +87,7 @@ public class Course implements Serializable {
     @Override
     public String toString() {
         return "Course{" +
-                "course_id=" + course_id +
+                "courseId=" + courseId +
                 ", courseName='" + courseName + '\'' +
                 '}';
     }

@@ -10,12 +10,12 @@ public interface UserCourseService extends BaseService<UserCourse> {
 
     List<UserCourse> getAllUserCourseByUserId(String username);
 
-    List<UserCourse> getAllUserCourseByUserId(Long user_id);
+    List<UserCourse> getAllUserCourseByUserId(Long userId);
 
-    void addCourseToUser(Long user_id, Long course_id);
+    void addCourseToUser(Long userId, Long courseId);
 
-    List<UserCourse> getAllUserCourseByCourseId(Long course_id);
+    List<UserCourse> getAllUserCourseByCourseId(Long courseId);
 
-    List<UserCourse> checkTeacherCourse(Long course_id);
+    List<UserCourse> checkTeacherCourse(Long courseId);
 
 }

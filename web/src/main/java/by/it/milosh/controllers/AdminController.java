@@ -186,7 +186,7 @@ public class AdminController {
     @RequestMapping(value = "/expelStudent", method = RequestMethod.POST)
     public ModelAndView expelStudent(ModelAndView model, @RequestParam("username") String username) {
         User user = userService.findUserByUsername(username);
-        userService.deleteStudentById(user.getUser_id());
+        userService.deleteStudentById(user.getUserId());
         model.setViewName("redirect:/admin/allStudentsPagination/1");
         return model;
     }

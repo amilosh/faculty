@@ -17,7 +17,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     private final static String GET_ALL_USER_BY_ROLE_PAGINATION = "select u from User u left join u.role r where r.roleName=:roleName";
     private final static String NUMBER_OF_USERS_BY_ROLE = "select count(u) from User u left join u.role r where r.roleName=:roleName";
     private final static String GET_ALL_USERS = "from User";
-    private final static String GET_USER_COURSE_BY_USER_ID = "from UserCourse uc where uc.user.user_id=:user_id";
+    private final static String GET_USER_COURSE_BY_USER_ID = "from UserCourse uc where uc.user.userId=:userId";
 
 
     /**
@@ -98,11 +98,11 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public void deleteStudentById(Long user_id) {
-        getSession().createQuery(GET_USER_COURSE_BY_USER_ID).setParameter("user_id", user_id);
+    public void deleteStudentById(Long userId) {
+        getSession().createQuery(GET_USER_COURSE_BY_USER_ID).setParameter("userId", userId);
         List<UserCourse> userCourses = getSession()
                 .createQuery(GET_USER_COURSE_BY_USER_ID)
-                .setParameter("user_id", user_id)
+                .setParameter("userId", userId)
                 .list();
 
         for (UserCourse userCourse : userCourses) {
@@ -111,7 +111,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
             getSession().delete(userCourse);
         }
 
-        User user = (User) getSession().get(User.class, user_id);
+        User user = (User) getSession().get(User.class, userId);
         getSession().delete(user);
 
     }

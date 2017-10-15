@@ -74,7 +74,7 @@
                                 <td>
                                     <c:choose>
                                         <c:when test="${empty sl.rating}">
-                                            <input type="hidden" name="user_course_id" value="${sl.user_course_id}">
+                                            <input type="hidden" name="userCourseId" value="${sl.userCourseId}">
                                             <button type="submit">Поставить оценку</button>
                                         </c:when>
                                         <c:when test="${not empty sl.rating}">

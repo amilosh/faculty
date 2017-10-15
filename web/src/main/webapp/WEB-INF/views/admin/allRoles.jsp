@@ -31,12 +31,12 @@
         <table>
             <caption><spring:message code="ListOfRoles"/></caption>
              <tr>
-                <th>role_id</th>
-                <th>role_name</th>
+                <th>roleId</th>
+                <th>roleName</th>
             </tr>
             <c:forEach var="r" items="${roles}">
                 <tr>
-                    <td><c:out value="${r.role_id}" /></td>
+                    <td><c:out value="${r.roleId}" /></td>
                     <td><c:out value="${r.roleName}" /></td>
                 </tr>
             </c:forEach>

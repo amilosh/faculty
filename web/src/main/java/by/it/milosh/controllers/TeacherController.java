@@ -53,15 +53,15 @@ public class TeacherController {
     public ModelAndView personal(ModelAndView model) {
         List<String> courseNames = userService.getAllCourseNames();
         model.addObject("courseNames", courseNames);
-        Long user_id = userService.findUserByUsername(getPrincipal()).getUser_id();
-        List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(user_id);
+        Long userId = userService.findUserByUsername(getPrincipal()).getUserId();
+        List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(userId);
         model.addObject("userCourses", userCourses);
         model.addObject("course", new Course());
         if (userCourses.isEmpty()) {
 
         } else {
-            Long course_id = userCourses.get(0).getCourse().getCourse_id();
-            List<UserCourse> studentsList = userCourseService.getAllUserCourseByCourseId(course_id);
+            Long courseId = userCourses.get(0).getCourse().getCourseId();
+            List<UserCourse> studentsList = userCourseService.getAllUserCourseByCourseId(courseId);
             model.addObject("studentsList", studentsList);
         }
         model.setViewName("teacher/personalTeacher");
@@ -84,12 +84,12 @@ public class TeacherController {
             model.setViewName("student/personalStudent");
         }
         String courseName = course.getCourseName();
-        Long course_id = courseService.findCourseByName(courseName).getCourse_id();
-        List<UserCourse> userCoursesList = userCourseService.checkTeacherCourse(course_id);
+        Long courseId = courseService.findCourseByName(courseName).getCourseId();
+        List<UserCourse> userCoursesList = userCourseService.checkTeacherCourse(courseId);
         if (userCoursesList.isEmpty()) {
             userService.addCourseToUser(getPrincipal(), course.getCourseName());
-            Long user_id = userService.findUserByUsername(getPrincipal()).getUser_id();
-            List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(user_id);
+            Long userId = userService.findUserByUsername(getPrincipal()).getUserId();
+            List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(userId);
             model.addObject("userCourses", userCourses);
             model.setViewName("redirect:/personalTeacher");
 
@@ -105,20 +105,20 @@ public class TeacherController {
 
     /**
      * Teacher make grade to student.
-     * @param user_course_id - UserCurse
+     * @param userCourseId - UserCurse
      * @param rating - grade of student
      * @param model - org.springframework.web.servlet.ModelAndView
      * @return - model
      */
     @RequestMapping(value = {"/makeAsses"}, method = RequestMethod.POST)
-    public ModelAndView makeAsses(@RequestParam Long user_course_id,
+    public ModelAndView makeAsses(@RequestParam Long userCourseId,
                                   @RequestParam Integer rating,
                                   ModelAndView model) {
-        UserCourse userCourse = userCourseService.getEntityById(UserCourse.class, user_course_id);
+        UserCourse userCourse = userCourseService.getEntityById(UserCourse.class, userCourseId);
         userCourse.setRating(rating);
         userCourseService.updateEntity(userCourse);
-        Long course_id = 1L;
-        List<UserCourse> userCourses = userCourseService.getAllUserCourseByCourseId(course_id);
+        Long courseId = 1L;
+        List<UserCourse> userCourses = userCourseService.getAllUserCourseByCourseId(courseId);
         model.addObject("userCourses", userCourses);
         model.setViewName("redirect:/personalTeacher");
         return model;

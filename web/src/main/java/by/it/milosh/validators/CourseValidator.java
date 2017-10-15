@@ -35,13 +35,13 @@ public class CourseValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Course course = (Course) o;
 
-        Long user_id = userService.findUserByUsername(getPrincipal()).getUser_id();
-        List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(user_id);
+        Long userId = userService.findUserByUsername(getPrincipal()).getUserId();
+        List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(userId);
         Course course1 = courseService.findCourseByName(course.getCourseName());
-        Long course1_id = course1.getCourse_id();
+        Long course1Id = course1.getCourseId();
         boolean checkCourse = true;
         for (int i = 0; i < userCourses.size(); i++) {
-            if (userCourses.get(i).getCourse().getCourse_id() == course1_id) {
+            if (userCourses.get(i).getCourse().getCourseId() == course1Id) {
                 checkCourse = false;
             }
         }

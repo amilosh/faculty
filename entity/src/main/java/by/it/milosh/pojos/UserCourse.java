@@ -20,15 +20,15 @@ public class UserCourse implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_course_id")
-    private Long user_course_id;
+    @Column(name = "userCourseId")
+    private Long userCourseId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "courseId")
     private Course course;
 
     @Column(name = "rating")
@@ -43,12 +43,12 @@ public class UserCourse implements Serializable {
         this.rating = rating;
     }
 
-    public Long getUser_course_id() {
-        return user_course_id;
+    public Long getUserCourseId() {
+        return userCourseId;
     }
 
-    public void setUser_course_id(Long user_course_id) {
-        this.user_course_id = user_course_id;
+    public void setUserCourseId(Long userCourseId) {
+        this.userCourseId = userCourseId;
     }
 
     public User getUser() {
@@ -85,7 +85,7 @@ public class UserCourse implements Serializable {
         if (course != null ? !course.equals(that.course) : that.course != null) return false;
         if (rating != null ? !rating.equals(that.rating) : that.rating != null) return false;
         if (user != null ? !user.equals(that.user) : that.user != null) return false;
-        if (user_course_id != null ? !user_course_id.equals(that.user_course_id) : that.user_course_id != null)
+        if (userCourseId != null ? !userCourseId.equals(that.userCourseId) : that.userCourseId != null)
             return false;
 
         return true;
@@ -93,7 +93,7 @@ public class UserCourse implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = user_course_id != null ? user_course_id.hashCode() : 0;
+        int result = userCourseId != null ? userCourseId.hashCode() : 0;
         result = 31 * result + (user != null ? user.hashCode() : 0);
         result = 31 * result + (course != null ? course.hashCode() : 0);
         result = 31 * result + (rating != null ? rating.hashCode() : 0);
@@ -103,7 +103,7 @@ public class UserCourse implements Serializable {
     @Override
     public String toString() {
         return "UserCourse{" +
-                "user_course_id=" + user_course_id +
+                "userCourseId=" + userCourseId +
                 ", rating=" + rating +
                 '}';
     }

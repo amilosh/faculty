@@ -64,7 +64,7 @@ public class UserCourseDaoImplTest {
         //userCourse.setUser(user);
         //userCourse.setCourse(course);
         //userCourseDao.addEntity(userCourse);
-        userCourseDao.addCourseToUser(user.getUser_id(), course.getCourse_id());
+        userCourseDao.addCourseToUser(user.getUserId(), course.getCourseId());
 
         this.commonRole = role;
         this.commonUser = user;
@@ -73,7 +73,7 @@ public class UserCourseDaoImplTest {
 
     @Test
     public void getAllUserCourseByUserIdTest() {
-        List<UserCourse> userCourses = userCourseDao.getAllUserCourseByUserId(commonUser.getUser_id());
+        List<UserCourse> userCourses = userCourseDao.getAllUserCourseByUserId(commonUser.getUserId());
         assertEquals(1, userCourses.size());
     }
 

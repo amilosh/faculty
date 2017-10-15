@@ -27,8 +27,8 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
-    private Long user_id;
+    @Column(name = "userId")
+    private Long userId;
 
     @Column(name = "username", unique = true, nullable = false)
     private String username;
@@ -37,7 +37,7 @@ public class User implements Serializable {
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "roleId")
     private Role role;
 
     @OneToMany(mappedBy = "user")
@@ -53,12 +53,12 @@ public class User implements Serializable {
         this.userCourse = userCourse;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -103,7 +103,7 @@ public class User implements Serializable {
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (role != null ? !role.equals(user.role) : user.role != null) return false;
         if (userCourse != null ? !userCourse.equals(user.userCourse) : user.userCourse != null) return false;
-        if (user_id != null ? !user_id.equals(user.user_id) : user.user_id != null) return false;
+        if (userId != null ? !userId.equals(user.userId) : user.userId != null) return false;
         if (username != null ? !username.equals(user.username) : user.username != null) return false;
 
         return true;
@@ -111,7 +111,7 @@ public class User implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = user_id != null ? user_id.hashCode() : 0;
+        int result = userId != null ? userId.hashCode() : 0;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
@@ -122,7 +122,7 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
+                "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';

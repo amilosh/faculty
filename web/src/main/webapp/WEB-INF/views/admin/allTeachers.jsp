@@ -30,13 +30,13 @@
         <table>
             <caption><spring:message code="ListOfTeachers"/></caption>
             <tr>
-                <th>user_id</th>
+                <th>userId</th>
                 <th>username</th>
                 <th>password</th>
             </tr>
             <c:forEach var="t" items="${teachers}">
                 <tr>
-                    <td><c:out value="${t.user_id}"/></td>
+                    <td><c:out value="${t.userId}"/></td>
                     <td><c:out value="${t.username}"/></td>
                     <td><c:out value="${t.password}"/></td>
                 </tr>

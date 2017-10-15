@@ -31,12 +31,12 @@
         <table>
             <caption><spring:message code="ListOfCourses"/></caption>
             <tr>
-                <th>course_id</th>
+                <th>courseId</th>
                 <th>courseName</th>
             </tr>
             <c:forEach var="c" items="${courses}">
                 <tr>
-                    <td><c:out value="${c.course_id}" /></td>
+                    <td><c:out value="${c.courseId}" /></td>
                     <td><c:out value="${c.courseName}" /></td>
                 </tr>
             </c:forEach>
