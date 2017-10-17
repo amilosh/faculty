@@ -21,12 +21,6 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
     private final static String CHECK_TEACHER_COURSE = "from UserCourse uc where uc.course.courseId=:courseId and uc.user.role.roleName=:roleName";
     private final static String GET_ALL_USER_COURSE = "from UserCourse";
 
-    /**
-     * Determine all courses, on which specific user subscribed.
-     * User is determined by user_id.
-     * @param userId - user id
-     * @return - all UserCurse, in which contained information about user's courses and his grades
-     */
     @Override
     @SuppressWarnings("unchecked")
     public List<UserCourse> getAllUserCourseByUserId(Long userId) {
@@ -36,11 +30,6 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
                 .list();
     }
 
-    /**
-     * User is subscribing on course.
-     * @param userId - user id
-     * @param courseId - course id
-     */
     @Override
     public void addCourseToUser(Long userId, Long courseId) {
         Session session = getSession();
@@ -52,12 +41,6 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
         session.saveOrUpdate(userCourse);
     }
 
-    /**
-     * Extract all students, which subscribed on specific course.
-     * Course is determined by course_id.
-     * @param courseId - course id
-     * @return - list of all UserCourse by course id
-     */
     @Override
     @SuppressWarnings("unchecked")
     public List<UserCourse> getAllUserCourseByCourseId(Long courseId) {
@@ -68,12 +51,6 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
                 .list();
     }
 
-    /**
-     * Extract all teachers, which subscribed on specific course.
-     * Course is determined by course_id.
-     * @param courseId - course id
-     * @return - list all courses which teacher teach
-     */
     @Override
     @SuppressWarnings("unchecked")
     public List<UserCourse> checkTeacherCourse(Long courseId) {
@@ -84,10 +61,6 @@ public class UserCourseDaoImpl extends BaseDaoImpl<UserCourse> implements UserCo
                 .list();
     }
 
-    /**
-     * Extract all UserCourse from DB.
-     * @return list of all UserCourses
-     */
     @Override
     @SuppressWarnings("unchecked")
     public List<UserCourse> getAllUserCourse() {

@@ -18,21 +18,12 @@ public class CourseServiceImpl extends BaseServiceImpl<Course> implements Course
     @Autowired
     private CourseDao courseDao;
 
-    /**
-     * Extract one Course from DB by course name.
-     * @param courseName - name of course
-     * @return - course by its name
-     */
     @Override
     @Transactional(readOnly = true)
     public Course findCourseByName(String courseName) {
         return courseDao.getCourseByName(courseName);
     }
 
-    /**
-     * Extract all Courses from DB.
-     * @return - list of all courses
-     */
     @Override
     @Transactional(readOnly = true)
     public List<Course> getAllCourses() {

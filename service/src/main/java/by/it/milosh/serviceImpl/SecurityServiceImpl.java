@@ -20,12 +20,6 @@ public class SecurityServiceImpl implements SecurityService {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    /**
-     * When user log up, he is becoming Principal object,
-     * and his parameters (username, password, role) is stored in authenticationToken.
-     * @param username - username
-     * @param password - password
-     */
     @Override
     public void autoLogin(String username, String password) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);

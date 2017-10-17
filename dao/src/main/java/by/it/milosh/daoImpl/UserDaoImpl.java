@@ -19,12 +19,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     private final static String GET_ALL_USERS = "from User";
     private final static String GET_USER_COURSE_BY_USER_ID = "from UserCourse uc where uc.user.userId=:userId";
 
-
-    /**
-     * Extrsct one user from DB by username.
-     * @param username - name of user
-     * @return - user by username
-     */
     @Override
     public User findUserByUsername(String username) {
         return (User) getSession()
@@ -33,26 +27,12 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
                 .uniqueResult();
     }
 
-    /**
-     * Extract all users, which have specific role.
-     * Role is determined by role name.
-     * @param roleName - name of role
-     * @return - list of all users, who have this role
-     */
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getAllUserByRole(String roleName) {
         return getSession().createQuery(GET_ALL_USER_BY_ROLE).setParameter("roleName", roleName).list();
     }
 
-    /**
-     * Extract all users, which has specific role, using pagination.
-     * Role is determined by role name.
-     * @param offset - first record on the page
-     * @param maxResult - number of record on the page
-     * @param roleName - name of role
-     * @return - list of users, who have this role, using pagination
-     */
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getAllUserByRolePagination(Integer offset, Integer maxResult, String roleName) {
@@ -72,12 +52,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
                 .list();
     }
 
-    /**
-     * Determine number of users, which has specific role.
-     * Role is determined by role name.
-     * @param roleName - name of role
-     * @return - number of user, who have this role
-     */
     @Override
     public Long numberOfUsersByRole(String roleName) {
         return (Long) getSession()
@@ -86,10 +60,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
                 .uniqueResult();
     }
 
-    /**
-     * Extract all Users from DB.
-     * @return - list of all users
-     */
+
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {

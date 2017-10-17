@@ -6,10 +6,25 @@ import java.util.List;
 
 public interface RoleService extends BaseService<Role> {
 
+    /**
+     * Extract one Role from DB by role name.
+     * @param roleName - name of Role
+     * @return - Role
+     */
     Role getRoleByRoleName(String roleName);
 
+    /**
+     * Determine name of role, which user has.
+     * User is determined by username.
+     * @param username - username of User
+     * @return - name of role
+     */
     String getRoleNameByUsername(String username);
 
+    /**
+     * Extract all Roles from DB.
+     * @return - list of all roles
+     */
     List<Role> getAllRoles();
 
 }

@@ -66,7 +66,7 @@ public class AdminController {
     }
 
     /**
-     *
+     * Go to the page with list of all courses.
      * @param model - org.springframework.web.servlet.ModelAndView
      * @return - model
      */

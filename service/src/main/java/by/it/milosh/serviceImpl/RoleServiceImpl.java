@@ -23,23 +23,12 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
     @Autowired
     private UserDao userDao;
 
-    /**
-     * Extract one Role from DB by role name.
-     * @param roleName - name of Role
-     * @return - Role
-     */
     @Override
     @Transactional(readOnly = true)
     public Role getRoleByRoleName(String roleName) {
         return roleDao.getRoleByRoleName(roleName);
     }
 
-    /**
-     * Determine name of role, which user has.
-     * User is determined by username.
-     * @param username - username of User
-     * @return - name of role
-     */
     @Override
     @Transactional(readOnly = true)
     public String getRoleNameByUsername(String username) {
@@ -49,10 +38,6 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         return roleName;
     }
 
-    /**
-     * Extract all Roles from DB.
-     * @return - list of all roles
-     */
     @Override
     @Transactional(readOnly = true)
     public List<Role> getAllRoles() {

@@ -32,42 +32,24 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     @Autowired
     private UserCourseDao userCourseDao;
 
-    /**
-     * Extract all Users from DB.
-     * @return
-     */
     @Override
     @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
-    /**
-     * Extrsct one user from DB by username.
-     * @param username
-     * @return
-     */
     @Override
     @Transactional(readOnly = true)
     public User findUserByUsername(String username) {
         return userDao.findUserByUsername(username);
     }
 
-    /**
-     * Extract all Users by his role.
-     * @param roleName
-     * @return
-     */
     @Override
     @Transactional(readOnly = true)
     public List<User> getAllUserByRole(String roleName) {
         return userDao.getAllUserByRole(roleName);
     }
 
-    /**
-     * Extract all course names from DB.
-     * @return
-     */
     @Override
     @Transactional(readOnly = true)
     public List<String> getAllCourseNames() {
@@ -80,11 +62,6 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return courseNames;
     }
 
-    /**
-     * User is subscribing on course.
-     * @param username
-     * @param courseName
-     */
     @Override
     public void addCourseToUser(String username, String courseName) {
         Long userId = userDao.findUserByUsername(username).getUserId();
@@ -92,26 +69,12 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         userCourseDao.addCourseToUser(userId, courseId);
     }
 
-    /**
-     * Extract all users, which has specific role, using pagination.
-     * Role is determined by role name.
-     * @param offset - first record on the page
-     * @param maxResult - number of record on the page
-     * @param roleName
-     * @return
-     */
     @Override
     @Transactional(readOnly = true)
     public List<User> getAllUserByRolePagination(Integer offset, Integer maxResult, String roleName) {
         return userDao.getAllUserByRolePagination(offset, maxResult, roleName);
     }
 
-    /**
-     * Determine number of users, which has specific role.
-     * Role is determined by role name.
-     * @param roleName
-     * @return
-     */
     @Override
     @Transactional(readOnly = true)
     public Long numberOfUsersByRole(String roleName) {
