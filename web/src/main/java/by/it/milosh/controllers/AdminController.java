@@ -25,6 +25,9 @@ import java.util.List;
 public class AdminController {
     private final static Logger logger = Logger.getLogger(AdminController.class);
 
+    public static final int CURRENT_PAGE = 1;
+    public static final int USERS_PER_PAGE = 5;
+
     @Autowired
     private UserService userService;
 
@@ -52,15 +55,13 @@ public class AdminController {
 
     /**
      * Add new Role to DB.
-     * @param title - name of role
+     * @param roleName - name of role
      * @param model - org.springframework.web.servlet.ModelAndView
      * @return - model
      */
     @RequestMapping(value = "/allRoles", method = RequestMethod.POST)
-    public ModelAndView allRoles(@RequestParam String title, ModelAndView model) {
-        Role role = new Role();
-        role.setRoleName(title);
-        roleService.addEntity(role);
+    public ModelAndView allRoles(@RequestParam String roleName, ModelAndView model) {
+        roleService.saveRoleByRoleName(roleName);
         model.setViewName("redirect:/admin/allRoles");
         return model;
     }
@@ -80,15 +81,13 @@ public class AdminController {
 
     /**
      * Extract all courses from DB.
-     * @param title - name of course
+     * @param courseName - name of course
      * @param model - org.springframework.web.servlet.ModelAndView
      * @return - model
      */
     @RequestMapping(value = "/allCourses", method = RequestMethod.POST)
-    public ModelAndView allCourses(@RequestParam String title, ModelAndView model) {
-        Course course = new Course();
-        course.setCourseName(title);
-        courseService.addEntity(course);
+    public ModelAndView allCourses(@RequestParam String courseName, ModelAndView model) {
+        courseService.saveCourseByCourseName(courseName);
         model.setViewName("redirect:/admin/allCourses");
         return model;
     }
@@ -114,11 +113,8 @@ public class AdminController {
      */
     @RequestMapping(value = "/allStudentsPagination/{page}", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView allStudentsPagination(@PathVariable Integer page, ModelAndView model) {
-        int currentPage = 1;
-        int usersPerPage = 5;
-        if (page != null) {
-            currentPage = page;
-        }
+        int currentPage = determineCurrentPage(page);
+        int usersPerPage = USERS_PER_PAGE;
         List<User> students = userService.getAllUserByRolePagination((currentPage-1)*usersPerPage, usersPerPage, RoleEnum.STUDENT.getType());
         long numberOfUsers = userService.numberOfUsersByRole(RoleEnum.STUDENT.getType());
         int numberOfPages = (int) Math.ceil(numberOfUsers * 1.0 / usersPerPage);
@@ -150,11 +146,8 @@ public class AdminController {
      */
     @RequestMapping(value = "/allTeachersPagination/{page}", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView allTeachersPagination(@PathVariable Integer page, ModelAndView model) {
-        int currentPage = 1;
-        int usersPerPage = 5;
-        if (page != null) {
-            currentPage = page;
-        }
+        int currentPage = determineCurrentPage(page);
+        int usersPerPage = USERS_PER_PAGE;
         List<User> teachers = userService.getAllUserByRolePagination((currentPage-1)*usersPerPage, usersPerPage, RoleEnum.TEACHER.getType());
         long numberOfUsers = userService.numberOfUsersByRole(RoleEnum.TEACHER.getType());
         int numberOfPages = (int) Math.ceil(numberOfUsers * 1.0 / usersPerPage);
@@ -163,6 +156,19 @@ public class AdminController {
         model.addObject("teachers", teachers);
         model.setViewName("admin/allTeachers");
         return model;
+    }
+
+    /**
+     * The method determines which page the user has moved to: the first or any other.
+     * @param page - page number to which the user moved
+     * @return - current page
+     */
+    private int determineCurrentPage(Integer page) {
+        int currentPage = CURRENT_PAGE;
+        if (page != null) {
+            currentPage = page;
+        }
+        return currentPage;
     }
 
     /**
@@ -185,8 +191,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/expelStudent", method = RequestMethod.POST)
     public ModelAndView expelStudent(ModelAndView model, @RequestParam("username") String username) {
-        User user = userService.findUserByUsername(username);
-        userService.deleteStudentById(user.getUserId());
+        userService.deleteStudentByUsername(username);
         model.setViewName("redirect:/admin/allStudentsPagination/1");
         return model;
     }

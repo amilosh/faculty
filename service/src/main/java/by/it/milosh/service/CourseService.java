@@ -19,4 +19,11 @@ public interface CourseService extends BaseService<Course> {
      */
     List<Course> getAllCourses();
 
+    /**
+     * Add new course to database by course name.
+     * @param courseName - name of course
+     * @return - тешене Course
+     */
+    Course saveCourseByCourseName(String courseName);
+
 }

@@ -45,7 +45,7 @@
         <br/>
 
         <form:form name="addRole" method="post" action="${contextPath}/admin/allRoles">
-            <input type="text" name="title" value="" placeholder="<spring:message code="RoleName"/>" class="addInput"><br/><br/>
+            <input type="text" name="roleName" value="" placeholder="<spring:message code="RoleName"/>" class="addInput"><br/><br/>
             <input type="submit" class="addButton" value="<spring:message code="AddRole"/>">
         </form:form>
 

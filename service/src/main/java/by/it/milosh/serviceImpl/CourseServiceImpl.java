@@ -30,4 +30,11 @@ public class CourseServiceImpl extends BaseServiceImpl<Course> implements Course
         return courseDao.getAllCourses();
     }
 
+    @Override
+    public Course saveCourseByCourseName(String courseName) {
+        Course course = new Course();
+        course.setCourseName(courseName);
+        addEntity(course);
+        return course;
+    }
 }

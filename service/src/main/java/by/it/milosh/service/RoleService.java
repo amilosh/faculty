@@ -27,4 +27,11 @@ public interface RoleService extends BaseService<Role> {
      */
     List<Role> getAllRoles();
 
+    /**
+     * Add new role to database by its role name.
+     * @param roleName - name of role
+     * @return - entity Role
+     */
+    Role saveRoleByRoleName(String roleName);
+
 }

@@ -58,9 +58,15 @@ public interface UserService extends BaseService<User> {
     Long numberOfUsersByRole(String roleName);
 
     /**
-     * Exclude a student from the university bu his id.
+     * Exclude a student from the university by his id.
      * @param userId - user Id
      */
     void deleteStudentById(Long userId);
+
+    /**
+     * Exclude a student from the university by his username.
+     * @param username - username of user
+     */
+    void deleteStudentByUsername(String username);
 
 }

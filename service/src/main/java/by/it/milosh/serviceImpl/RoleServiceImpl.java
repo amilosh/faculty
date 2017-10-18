@@ -44,4 +44,11 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         return roleDao.getAllRoles();
     }
 
+    @Override
+    public Role saveRoleByRoleName(String roleName) {
+        Role role = new Role();
+        role.setRoleName(roleName);
+        addEntity(role);
+        return role;
+    }
 }

@@ -85,4 +85,10 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     public void deleteStudentById(Long userId) {
         userDao.deleteStudentById(userId);
     }
+
+    @Override
+    public void deleteStudentByUsername(String username) {
+        User user = userDao.findUserByUsername(username);
+        userDao.deleteStudentById(user.getUserId());
+    }
 }
