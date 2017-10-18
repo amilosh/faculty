@@ -50,6 +50,9 @@ public class MainController {
     private UserValidator userValidator;
 
     @Autowired
+    private MainService mainService;
+
+    @Autowired
     @Qualifier("baseService")
     private BaseService baseService;
 
@@ -106,9 +109,7 @@ public class MainController {
         if (bindingResult.hasErrors()) {
             return "main/registrationStudent";
         }
-        Role role = roleService.getRoleByRoleName(RoleEnum.STUDENT.getType());
-        user.setRole(role);
-        userService.addEntity(user);
+        userService.saveStudent(user);
         securityService.autoLogin(user.getUsername(), user.getPassword());
         return "redirect:/";
     }
@@ -136,9 +137,7 @@ public class MainController {
         if (bindingResult.hasErrors()) {
             return "main/registrationTeacher";
         }
-        Role role = roleService.getRoleByRoleName(RoleEnum.TEACHER.getType());
-        user.setRole(role);
-        userService.addEntity(user);
+        userService.saveTeacher(user);
         securityService.autoLogin(user.getUsername(), user.getPassword());
         return "redirect:/";
     }
@@ -197,15 +196,8 @@ public class MainController {
      */
     @RequestMapping(value = {"/personal"}, method = RequestMethod.GET)
     public ModelAndView personal(ModelAndView model) {
-        String forwardPage = "";
         String roleName = roleService.getRoleNameByUsername(getPrincipal());
-        if (roleName.equals(RoleEnum.STUDENT.getType())) {
-            forwardPage = "redirect:/personalStudent";
-        } else if (roleName.equals(RoleEnum.TEACHER.getType())) {
-            forwardPage = "redirect:/personalTeacher";
-        } else if (roleName.equals(RoleEnum.ADMIN.getType())) {
-            forwardPage = "admin/admin";
-        }
+        String forwardPage = mainService.determinePersonalPageByUserRole(roleName);
         model.setViewName(forwardPage);
         return model;
     }

@@ -69,4 +69,18 @@ public interface UserService extends BaseService<User> {
      */
     void deleteStudentByUsername(String username);
 
+    /**
+     * Add user to database like Student.
+     * @param user - user with username and password
+     * @return user with id, username, password and role ROLE_STUDENT
+     */
+    User saveStudent(User user);
+
+    /**
+     * Add user to database like Teacher.
+     * @param user - user with username and password
+     * @return user with id, username, password and role ROLE_TEACHER
+     */
+    User saveTeacher(User user);
+
 }

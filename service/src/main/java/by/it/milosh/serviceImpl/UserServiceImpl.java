@@ -1,10 +1,12 @@
 package by.it.milosh.serviceImpl;
 
+import by.it.milosh.Enums.RoleEnum;
 import by.it.milosh.dao.CourseDao;
 import by.it.milosh.dao.RoleDao;
 import by.it.milosh.dao.UserCourseDao;
 import by.it.milosh.dao.UserDao;
 import by.it.milosh.pojos.Course;
+import by.it.milosh.pojos.Role;
 import by.it.milosh.pojos.User;
 import by.it.milosh.service.UserService;
 import org.apache.log4j.Logger;
@@ -90,5 +92,21 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     public void deleteStudentByUsername(String username) {
         User user = userDao.findUserByUsername(username);
         userDao.deleteStudentById(user.getUserId());
+    }
+
+    @Override
+    public User saveStudent(User user) {
+        Role role = roleDao.getRoleByRoleName(RoleEnum.STUDENT.getType());
+        user.setRole(role);
+        userDao.addEntity(user);
+        return user;
+    }
+
+    @Override
+    public User saveTeacher(User user) {
+        Role role = roleDao.getRoleByRoleName(RoleEnum.TEACHER.getType());
+        user.setRole(role);
+        userDao.addEntity(user);
+        return user;
     }
 }
