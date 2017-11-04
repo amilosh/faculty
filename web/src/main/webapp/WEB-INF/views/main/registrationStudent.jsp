@@ -9,6 +9,9 @@
 <head>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css"/>
     <link rel="stylesheet" href="${contextPath}/resources/css/add.css"/>
+    <script type="text/javascript" src="${contextPath}/resources/js/registration.js">
+
+    </script>
     <title>Registration Page</title>
 </head>
 <body>
@@ -26,7 +29,7 @@
 
             <form:form method="post" modelAttribute="user" action="${contextPath}/registrationStudent">
                 <spring:bind path="username">
-                    <form:input path="username" type="text" placeholder="Username" class="addInput"/>
+                    <form:input path="username" type="text" placeholder="Username" class="addInput" id="username"/>
                     <form:errors path="username" cssStyle="color: red"/>
                 </spring:bind><br/><br/>
                 <spring:bind path="password">

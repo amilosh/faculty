@@ -56,9 +56,9 @@ public class StudentController {
     @RequestMapping(value = {"/personalStudent"}, method = RequestMethod.GET)
     public ModelAndView personal(ModelAndView model) {
         List<String> courseNames = userService.getAllCourseNames();
-        model.addObject("courseNames", courseNames);
         Long userId = userService.findUserByUsername(getPrincipal()).getUserId();
         List<UserCourse> userCourses = userCourseService.getAllUserCourseByUserId(userId);
+        model.addObject("courseNames", courseNames);
         model.addObject("userCourses", userCourses);
         model.addObject("course", new Course());
         model.setViewName("student/personalStudent");

@@ -9,7 +9,7 @@
     <span class="copyright">&copy; Copyright</span>
 
     <span class="author">
-            <spring:message code="siteDevelopment"/> - <a href="https://www.linkedin.com/in/alexander-milosh-976a4a144/" target="_blank">Alexander Milosh</a>
+            <spring:message code="siteDevelopment"/> - <a href="https://www.linkedin.com/in/aliaksandr-milash-976a4a144/" target="_blank">Alexander Milosh</a>
     </span>
 </footer>
 

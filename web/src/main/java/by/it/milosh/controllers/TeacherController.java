@@ -96,7 +96,7 @@ public class TeacherController {
         } else {
             List<String> courseNames = userService.getAllCourseNames();
             model.addObject("courseNames", courseNames);
-            String check = "Этот курс уже заянт другим проподом.";
+            String check = "Этот курс уже заянт другим преподом.";
             model.addObject("check", check);
             model.setViewName("teacher/personalTeacher");
         }
