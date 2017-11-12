@@ -1,0 +1,32 @@
+.prev, .currentPage, .page, .next {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: #660099;
+}
+.prev{
+    background-color: #EBEBEB;
+}
+.prev:hover{
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+.currentPage{
+
+}
+.page{
+    background-color: #EBEBEB;
+}
+.page:hover{
+    background-color: #C0C0C0;
+    cursor: pointer;
+}
+.next{
+    background-color: #EBEBEB;
+}
+.next:hover{
+    background-color: #C0C0C0;
+    cursor: pointer;
+}

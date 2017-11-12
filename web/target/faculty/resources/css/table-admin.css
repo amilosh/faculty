@@ -1,0 +1,16 @@
+table{
+	font-family: Tahoma;
+	border-collapse: collapse;
+    width: 500px;
+}
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+caption{
+	padding-bottom: 10px;
+}
