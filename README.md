@@ -31,7 +31,7 @@ Faculty is a multi-module  [Maven](http://maven.apache.org/download.cgi) project
 * **Faculty** - the parent project
 * **entity** - contains domain objects used by the other modules (dao, service, web)
 * **dao** - code for database access
-* **service** - businaess-logic of the project
+* **service** - business-logic of the project
 * **web** - navigation by application through **Spring MVC**: and security by **Spring Security**
 
 ## Required environment
@@ -39,7 +39,7 @@ Faculty is a multi-module  [Maven](http://maven.apache.org/download.cgi) project
 2. MySQL 5.7
 3. Maven 3.3
 4. Tomcat 8
-5. (optonal) Git
+5. (optional) Git
 6. (optional) IDE (Eclipse or IntelliJ IDEA)
 
 ## Deploying project
@@ -49,7 +49,7 @@ git clone https://github.com/amilosh/faculty.git
 ```
 or
 ```
-Donwload ZIP
+Download ZIP
 ```
 ### Prepare MySql Database
 Open **beans-dao.xml** in project:
@@ -61,8 +61,8 @@ Change the **username/password** corresponding to your **root** user, configured
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="url" value="jdbc:mysql://localhost:3306/Faculty?createDatabaseIfNotExist=true"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="username" value="root"/><!-- use your installation admin user-->
-        <property name="password" value="12345"/><!-- use your installation admin user's password-->
+        <property name="username" value="root"/>    <!-- use your installation admin user-->
+        <property name="password" value="12345"/>    <!-- use your installation admin user's password-->
     </bean>
 ```
 ### Build project
