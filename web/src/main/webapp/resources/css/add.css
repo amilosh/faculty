@@ -24,3 +24,17 @@
     font-size: 16px;
     letter-spacing: 0.7px;
 }
+
+
+.usernameDiv {
+    margin-bottom: 20px;
+}
+.errorUsernameDiv {
+    margin-bottom: 20px;
+}
+.passwordDiv {
+    margin-bottom: 20px;
+}
+.buttonDiv {
+    margin-bottom: 20px;
+}

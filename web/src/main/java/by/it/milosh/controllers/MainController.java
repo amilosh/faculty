@@ -1,7 +1,5 @@
 package by.it.milosh.controllers;
 
-import by.it.milosh.Enums.RoleEnum;
-import by.it.milosh.pojos.Role;
 import by.it.milosh.pojos.User;
 import by.it.milosh.service.*;
 import by.it.milosh.validators.UserValidator;
@@ -15,19 +13,14 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 @Controller
-@RequestMapping
 public class MainController {
     private final static Logger logger = Logger.getLogger(MainController.class);
 

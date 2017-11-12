@@ -1,16 +1,13 @@
 package by.it.milosh.REST.model;
 
-import org.springframework.stereotype.Component;
-
-@Component
-public class UserRest {
+public class UserRequest {
 
     private String username;
 
-    public UserRest() {
+    public UserRequest() {
     }
 
-    public UserRest(String username) {
+    public UserRequest(String username) {
         this.username = username;
     }
 
@@ -21,5 +18,4 @@ public class UserRest {
     public void setUsername(String username) {
         this.username = username;
     }
-
 }

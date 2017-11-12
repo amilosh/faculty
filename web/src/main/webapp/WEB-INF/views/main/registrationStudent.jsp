@@ -9,9 +9,12 @@
 <head>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css"/>
     <link rel="stylesheet" href="${contextPath}/resources/css/add.css"/>
-    <script type="text/javascript" src="${contextPath}/resources/js/registration.js">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/registration.js"></script>
 
-    </script>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
     <title>Registration Page</title>
 </head>
 <body>
@@ -28,15 +31,24 @@
             <p style="padding-left: 120px;">СТУДЕНТ</p><br/>
 
             <form:form method="post" modelAttribute="user" action="${contextPath}/registrationStudent">
-                <spring:bind path="username">
-                    <form:input path="username" type="text" placeholder="Username" class="addInput" id="username"/>
-                    <form:errors path="username" cssStyle="color: red"/>
-                </spring:bind><br/><br/>
-                <spring:bind path="password">
-                    <form:input path="password" type="text" placeholder="Password" class="addInput"/>
-                    <form:errors path="password" cssStyle="color: red"/>
-                </spring:bind><br/><br/>
-                <button type="submit" class="addButton">Регистрация</button>
+                <div class="usernameDiv">
+                    <spring:bind path="username">
+                        <form:input path="username" type="text" placeholder="Username" class="addInput" id="username" name="username" oninput="checkAfterChangeUsername()"/>
+                        <form:errors path="username" cssStyle="color: red"/>
+                    </spring:bind>
+                </div>
+                <div class="errorUsernameDiv" id="errorUsername" style="display: none">
+                    <span style="color: red"><spring:message code="user.username.exist"/></span>
+                </div>
+                <div class="passwordDiv">
+                    <spring:bind path="password">
+                        <form:input path="password" type="text" placeholder="Password" class="addInput"/>
+                        <form:errors path="password" cssStyle="color: red"/>
+                    </spring:bind>
+                </div>
+                <div class="buttonDiv">
+                    <button type="submit" class="addButton">Регистрация</button>
+                </div>
             </form:form><br/>
 
         </div>

@@ -20,6 +20,7 @@
     <context:component-scan base-package="by.it.milosh.controllers"/>
     <context:component-scan base-package="by.it.milosh.authentication"/>
     <context:component-scan base-package="by.it.milosh.validators"/>
+    <context:component-scan base-package="by.it.milosh.REST"/>
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">

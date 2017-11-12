@@ -42,6 +42,23 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
+        <!-- JavaScript, JQuery, Ajax, JSon for Spring 4.3.4 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
         <!-- CgLib -->
         <dependency>
             <groupId>cglib</groupId>

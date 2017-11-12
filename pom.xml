@@ -38,6 +38,7 @@
         <javax.servlet.api.version>3.1.0</javax.servlet.api.version>
         <javax.servlet.jsp.api.version>2.3.1</javax.servlet.jsp.api.version>
         <jstl.version>1.2</jstl.version>
+        <jackson.version>2.6.0</jackson.version>
         <ehcache.version>2.6.9</ehcache.version>
         <cobertura.version>2.7</cobertura.version>
     </properties>
@@ -70,6 +71,11 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
                 <version>${hibernate.version}</version>
             </dependency>
             <dependency>
@@ -169,6 +175,23 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
                 <version>1.2</version>
+            </dependency>
+
+            <!-- JavaScript, JQuery, Ajax, JSon for Spring 4.3.4 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
 
             <!-- EhCache. Second Level Cache -->

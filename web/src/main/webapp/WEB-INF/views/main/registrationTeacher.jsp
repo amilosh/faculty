@@ -26,7 +26,7 @@
 
             <form:form method="post" modelAttribute="user" action="${contextPath}/registrationTeacher">
                 <spring:bind path="username">
-                    <form:input path="username" type="text" placeholder="Username" class="addInput"/>
+                    <form:input path="username" type="text" placeholder="Username" class="addInput" oninput="myFunction()"/>
                     <form:errors path="username" cssStyle="color: red"/>
                 </spring:bind><br/><br/>
                 <spring:bind path="password">
